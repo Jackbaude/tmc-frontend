@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="" />
+    <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/tmc-frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NewPost.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/layout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/posts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,8 +47,33 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Hekate-Website" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tmc-wiki-backend" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
   </component>
+  <component name="RunManager">
+    <configuration name="TMC" type="ReactNative" factoryName="React Native">
+      <node-interpreter value="project" />
+      <react-native value="" />
+      <platform value="ANDROID" />
+      <envs />
+      <only-packager />
+      <browser value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <debug-port value="3000" />
+      <method v="2">
+        <option name="ReactNativePackager" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -35,17 +87,63 @@
       <workItem from="1593288234645" duration="5231000" />
       <workItem from="1593358632124" duration="657000" />
       <workItem from="1593473172722" duration="3769000" />
-      <workItem from="1593616892293" duration="1420000" />
+      <workItem from="1593616892293" duration="2848000" />
+      <workItem from="1593625419710" duration="2606000" />
+      <workItem from="1594570964025" duration="2966000" />
+      <workItem from="1594825482532" duration="599000" />
+      <workItem from="1596313478036" duration="410000" />
+      <workItem from="1596313894956" duration="75000" />
+      <workItem from="1596389737789" duration="13000" />
+      <workItem from="1596647882632" duration="3388000" />
+      <workItem from="1596726181774" duration="9754000" />
+      <workItem from="1596812051677" duration="612000" />
+      <workItem from="1596987634065" duration="417000" />
+      <workItem from="1596996342978" duration="15366000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2658" y="851" width="424" height="491" key="FileChooserDialogImpl" timestamp="1593473614536">
+    <state x="2720" y="983" width="290" height="228" key="#ESLint" timestamp="1593625440045">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="2658" y="851" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1593473614536" />
+    <state x="2720" y="983" width="290" height="228" key="#ESLint/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1593625440045" />
+    <state x="1844" y="721" width="660" height="752" key="#TMC" timestamp="1594572476392">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="1844" y="721" width="660" height="752" key="#TMC/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594572476392" />
+    <state x="1637" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594573881416">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="1637" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594573881416" />
+    <state x="2688" y="796" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1596999159690">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="2688" y="796" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1596999159690" />
+    <state x="1937" y="953" width="463" height="296" key="#com.jetbrains.plugins.reactnative.ReactNativePackagerConfigurationEditor" timestamp="1594573880802">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="1937" y="953" width="463" height="296" key="#com.jetbrains.plugins.reactnative.ReactNativePackagerConfigurationEditor/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594573880802" />
+    <state x="4402" y="922" width="357" height="449" key="FileChooserDialogImpl" timestamp="1597011978891">
+      <screen x="3840" y="240" width="1080" height="1920" />
+    </state>
+    <state x="2658" y="838" key="FileChooserDialogImpl/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1596996505293" />
+    <state x="4402" y="922" width="357" height="449" key="FileChooserDialogImpl/0.27.3840.2100/3840.240.1080.1920@3840.240.1080.1920" timestamp="1597011978891" />
+    <state x="2658" y="851" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596726239199" />
+    <state x="1513" y="722" width="1022" height="737" key="SettingsEditor" timestamp="1597003002542">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="1513" y="722" width="1022" height="737" key="SettingsEditor/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597003002542" />
+    <state x="1513" y="733" width="1022" height="737" key="SettingsEditor/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596313957307" />
+    <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog" timestamp="1594572310168">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594572310168" />
+    <state x="2539" y="522" key="run.anything.popup" timestamp="1596735539246">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="2539" y="522" key="run.anything.popup/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596735539246" />
   </component>
 </project>
