@@ -1,13 +1,100 @@
 import React, {useState} from "react"
-import {Editor, EditorState, RichUtils, getDefaultKeyBinding, KeyBindingUtil, convertToRaw} from 'draft-js';
+import {
+    Editor,
+    EditorState,
+    RichUtils,
+    getDefaultKeyBinding,
+    KeyBindingUtil,
+    convertToRaw,
+    convertFromRaw
+} from 'draft-js';
 import 'draft-js/dist/Draft.css'
-import Layout from "./layout";
+import Layout from "../layout";
 
 
-const NewPost = () => {
+const EditPost = () => {
+    const rawData = [{
+        "blocks": [{
+            "key": "aai25",
+            "text": "Hello this is the test of some stuff!",
+            "type": "header-one",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }, {
+            "key": "e9pi5",
+            "text": "wow such heading two",
+            "type": "header-two",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+        }, {
+            "key": "elm9g",
+            "text": "Boom shaka Laka",
+            "type": "header-two",
+            "depth": 0,
+            "inlineStyleRanges": [{"offset": 0, "length": 15, "style": "BOLD"}],
+            "entityRanges": [],
+            "data": {}
+        }, {
+            "key": "13ij2",
+            "text": "Booma shaka laka",
+            "type": "header-two",
+            "depth": 0,
+            "inlineStyleRanges": [{"offset": 0, "length": 16, "style": "BOLD"}, {
+                "offset": 0,
+                "length": 16,
+                "style": "ITALIC"
+            }],
+            "entityRanges": [],
+            "data": {}
+        }, {
+            "key": "8igtu",
+            "text": "Book shaka laka",
+            "type": "header-two",
+            "depth": 0,
+            "inlineStyleRanges": [{"offset": 0, "length": 15, "style": "BOLD"}, {
+                "offset": 0,
+                "length": 15,
+                "style": "ITALIC"
+            }, {"offset": 0, "length": 15, "style": "UNDERLINE"}],
+            "entityRanges": [],
+            "data": {}
+        }, {
+            "key": "2sp69",
+            "text": "BOOOM shaka laka",
+            "type": "header-two",
+            "depth": 0,
+            "inlineStyleRanges": [{"offset": 0, "length": 16, "style": "BOLD"}, {
+                "offset": 0,
+                "length": 16,
+                "style": "ITALIC"
+            }],
+            "entityRanges": [],
+            "data": {}
+        }, {
+            "key": "7ktth",
+            "text": "Boom shaka laka",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [{"offset": 0, "length": 15, "style": "BOLD"}, {
+                "offset": 0,
+                "length": 15,
+                "style": "ITALIC"
+            }, {"offset": 0, "length": 15, "style": "CODE"}],
+            "entityRanges": [],
+            "data": {}
+        }], "entityMap": {}
+    }];
+
+// let parse = JSON.parse(rawData);
+// const contentState = (convertFromRaw(rawData));
     let [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty(),
     );
+
     let saveContent = (content) => {
         window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
     }
@@ -30,7 +117,6 @@ const NewPost = () => {
 
     const toggleInlineStyle = (event) => {
         event.preventDefault();
-
         let style = event.currentTarget.getAttribute('data-style');
         setEditorState(RichUtils.toggleInlineStyle(editorState, style));
     }
@@ -40,28 +126,40 @@ const NewPost = () => {
         let block = event.currentTarget.getAttribute('data-block');
         setEditorState(RichUtils.toggleBlockType(editorState, block));
     }
-
     const renderBlockButton = (value, block) => {
+        const currentBlockType = RichUtils.getCurrentBlockType(editorState);
+        let className = '';
+        if (currentBlockType === block) {
+            className = 'active';
+        }
         return (
             <input
                 type="button"
                 key={block}
                 value={value}
                 data-block={block}
-                onMouseDown={toggleBlockType}
+                onClick={toggleBlockType}
+                className={className}
             />
         );
     }
 
     const renderInlineStyleButton = (value, style) => {
+        const currentInlineStyle = editorState.getCurrentInlineStyle();
+        let className = '';
+        if (currentInlineStyle.has(style)) {
+            className = 'active';
+        }
         return (
             <input
                 type="button"
                 key={style}
                 value={value}
+                className={className}
                 data-style={style}
-                onMouseDown={toggleInlineStyle}
+                onClick={toggleInlineStyle}
             />
+
         );
     }
     const inlineStyleButtons = [
@@ -93,17 +191,17 @@ const NewPost = () => {
 
     const blockTypeButtons = [
         {
-            value: 'Heading One',
+            value: 'H1',
             block: 'header-one'
         },
 
         {
-            value: 'Heading Two',
+            value: 'H2',
             block: 'header-two'
         },
 
         {
-            value: 'Heading Three',
+            value: 'H3',
             block: 'header-three'
         },
 
@@ -151,14 +249,10 @@ const NewPost = () => {
             <div className="block-style-options">
                 {blockTypeButtons.map((button) => {
                     return renderBlockButton(button.value, button.block);
+
                 })}
             </div>
             <form className={"submit-post"}>
-                <input type={"text"} placeholder={"Title"}/>
-                <br/>
-                <input type={"text"} placeholder={"Description"}/>
-                <br/>
-                <input type={"text"} placeholder={"Tags"}/>
                 <Editor
                     editorState={editorState}
                     handleKeyCommand={handleKeyCommand}
@@ -166,10 +260,10 @@ const NewPost = () => {
                     onChange={onChange}
                     placeholder={"Start writing here!"}
                 />
-                <input type={"button"} value={"Submit"}/>
+                <input type={"button"} value={"Submit"} required/>
             </form>
         </Layout>
     );
 }
-export default NewPost
+export default EditPost
 

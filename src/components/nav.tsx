@@ -22,6 +22,12 @@ const Nav = () => (
                     <li className="nav-item active">
                         <a className="nav-link" href="/new-post">New Post<span className="sr-only">(current)</span></a>
                     </li>
+                    <li className="nav-item active">
+                        <a className="nav-link" href="/render-post">Render-Post (DEV)<span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link" href="/edit-post">Edit-Post (DEV)<span className="sr-only">(current)</span></a>
+                    </li>
                     <li className="nav-item">
                         <a className="nav-link" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub}/> Github</a>
                     </li>

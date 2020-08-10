@@ -2,32 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/tmc-frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NewPost.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/posts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RenderedPost/storedState.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +40,12 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/RenderedPost" />
+      <recent name="$PROJECT_DIR$/src/components/NewPost" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="TMC" type="ReactNative" factoryName="React Native">
@@ -98,7 +86,8 @@
       <workItem from="1596726181774" duration="9754000" />
       <workItem from="1596812051677" duration="612000" />
       <workItem from="1596987634065" duration="417000" />
-      <workItem from="1596996342978" duration="15366000" />
+      <workItem from="1596996342978" duration="21258000" />
+      <workItem from="1597067326210" duration="9750000" />
     </task>
     <servers />
   </component>
@@ -137,6 +126,10 @@
     </state>
     <state x="1513" y="722" width="1022" height="737" key="SettingsEditor/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597003002542" />
     <state x="1513" y="733" width="1022" height="737" key="SettingsEditor/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596313957307" />
+    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597078516564">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597078516564" />
     <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog" timestamp="1594572310168">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>

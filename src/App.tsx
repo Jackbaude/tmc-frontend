@@ -4,7 +4,8 @@ import Home from './components/Home/Home';
 import Posts from './components/Posts/Posts';
 import RenderedPost from "./components/RenderedPost/renderedPost";
 import Nav from "./components/nav";
-import NewPost from "./components/NewPost";
+import NewPost from "./components/NewPost/NewPost";
+import EditPost from "./components/EditPost/EditPost";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                     <Route path='/posts' component={Posts}/>
                     <Route path='/render-post' component={RenderedPost}/>
                     <Route path='/new-post' component={NewPost}/>
+                    <Route path='/edit-post' component={EditPost}/>
                 </Switch>
             </div>
         </Router>

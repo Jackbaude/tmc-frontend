@@ -1,3 +1,8 @@
+/*
+Color pallet: https://flatuicolors.com/palette/defo
+*/
+
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -21,31 +26,38 @@ a.navbar-brand {
 .inline-style-options input {
     width: 20%;
     margin-bottom: 1vh;
-    padding: 1px;
-    background: #3498db;
+    padding:1px;
+    background:#34495e;
+    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
     border: none;
-    border-right: 1px black solid;
-    border-left: 1px black solid;
-    color: white !important;
+    color: white!important;
 }
 
 .block-style-options input {
     width: 16.66%;
     margin-bottom: 1vh;
-    background: #2ecc71;
+    background: #34495e;
+    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
     border: none;
-    border-right: 1px black solid;
-    border-left: 1px black solid;
     color: white !important;
 
 }
 
 .inline-style-options input:hover {
-    background: #2980b9;
+    background: #2c3e50;
 }
 
 .block-style-options input:hover {
-    background: #27ae60;
+    background: #2c3e50;
+}
+
+.block-style-options input[type="button"].active {
+    background-color: #2980b9;
+    border-color: transparent;
+}
+.inline-style-options input[type="button"].active {
+    background-color: #2980b9;
+    border-color: transparent;
 }
 
 .submit-post input {
@@ -53,11 +65,6 @@ a.navbar-brand {
     margin-bottom: 1vh;
     padding: 1px;
     border: none;
-}
-
-.submit-post input:focus {
-    border: none;
-    color: black;
 
 }
 
@@ -65,12 +72,31 @@ a.navbar-brand {
     margin-top: 3vh;
     background: #1abc9c;
     color: white !important;
+    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
+    border: none;
+    border-radius: 1vw;
 }
 
 .submit-post input[type=button]:hover {
     background: #16a085;
+    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.7);
 }
 
 .submit-post input::placeholder {
     color: silver;
+}
+
+.edit-post-button {
+    margin-top: 3vh;
+    background: #1abc9c;
+    color: white !important;
+    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
+    border: none;
+    border-radius: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+.edit-post-button:hover {
+    background: #16a085;
+    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.7);
 }
