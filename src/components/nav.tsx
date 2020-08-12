@@ -28,17 +28,16 @@ const Nav = () => (
                     <li className="nav-item active">
                         <a className="nav-link" href="/edit-post">Edit-Post (DEV)<span className="sr-only">(current)</span></a>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub}/> Github</a>
-                    </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             More
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="https://discord.gg/FcTFg2E" target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faDiscord}/> Discord</a>
+                            <a className="dropdown-item" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub} size={"lg"}/> Github</a>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="https://www.youtube.com/channel/UCf9SYal_h3WSoksvxLYruuQ"target="_blank"rel="noreferrer noopener"> <FontAwesomeIcon icon={faYoutube}/> Youtube</a>
+                            <a className="dropdown-item" href="https://discord.gg/FcTFg2E" target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faDiscord} size={"lg"}/> Discord</a>
+                            <div className="dropdown-divider"></div>
+                            <a className="dropdown-item" href="https://www.youtube.com/channel/UCf9SYal_h3WSoksvxLYruuQ"target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faYoutube} size={"lg"}/> Youtube</a>
                         </div>
                     </li>
                 </ul>

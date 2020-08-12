@@ -2,12 +2,16 @@ import React, {useState} from "react"
 import {Editor, EditorState, RichUtils, getDefaultKeyBinding, KeyBindingUtil, convertToRaw} from 'draft-js';
 import 'draft-js/dist/Draft.css'
 import Layout from "../layout";
-
+import {faBold} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const NewPost = () => {
     let [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty(),
     );
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [tags, setTags] = useState('')
 
     let saveContent = (content) => {
         window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
@@ -137,32 +141,43 @@ const NewPost = () => {
     ];
 
     const keyBindingFunction = (event) => {
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === 'x') {
-            return 'strikethrough';
-        }
-
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === '7') {
-            return 'ordered-list';
-        }
-
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === '8') {
-            return 'unordered-list';
-        }
-
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === '9') {
-            return 'blockquote';
-        }
         return getDefaultKeyBinding(event);
     }
     const submitPost = () => {
-
+        console.log (
+            JSON.stringify({
+                title: title,
+                description: description,
+                tags: tags,
+                body: window.localStorage.getItem('content')
+            })
+        );
+        const lastEdit = new Date();
+        fetch("http://localhost:8000/__newpost__", {
+            // Adding method type
+            method: "POST",
+            // Adding body or contents to send
+            body: JSON.stringify({
+                body: window.localStorage.getItem('content'),
+                title: title,
+                tags: tags,
+                description: description
+            }),
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Access-Control-Allow-Headers" : "Content-Type",
+                "Access-Control-Allow-Origin": "http://localhost:8000/__newpost__",
+                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+            }
+        }).then(r => console.log(r));
     }
     return (
         <Layout>
             <div className="inline-style-options">
                 {inlineStyleButtons.map((button) => {
                     return renderInlineStyleButton(button.value, button.style);
-                })}
+                })} 
             </div>
             <div className="block-style-options">
                 {blockTypeButtons.map((button) => {
@@ -171,11 +186,25 @@ const NewPost = () => {
                 })}
             </div>
             <form className={"submit-post"}>
-                <input type={"text"} placeholder={"Title"} name={"title"} required/>
+
+                <input
+                    type={"text"}
+                    onChange={event => setTitle(event.target.value)}
+                    placeholder={"Title"}
+                    name={"title"}
+                    required/>
                 <br/>
-                <input type={"text"} placeholder={"Description"} name={"description"} required/>
+                <input type={"text"}
+                       onChange={event => setDescription(event.target.value)}
+                       placeholder={"Description"}
+                       name={"description"}
+                       required/>
                 <br/>
-                <input type={"text"} placeholder={"Tags"} name={"tags"} required/>
+                <input type={"text"}
+                       onChange={event => setTags(event.target.value)}
+                       placeholder={"Tags"}
+                       name={"tags"}
+                       required/>
                 <Editor
                     editorState={editorState}
                     handleKeyCommand={handleKeyCommand}

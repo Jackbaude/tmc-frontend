@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/RenderedPost/storedState.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
@@ -87,7 +88,9 @@
       <workItem from="1596812051677" duration="612000" />
       <workItem from="1596987634065" duration="417000" />
       <workItem from="1596996342978" duration="21258000" />
-      <workItem from="1597067326210" duration="9750000" />
+      <workItem from="1597067326210" duration="13819000" />
+      <workItem from="1597161125259" duration="9815000" />
+      <workItem from="1597247269937" duration="2354000" />
     </task>
     <servers />
   </component>

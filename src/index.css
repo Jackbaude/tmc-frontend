@@ -19,10 +19,9 @@ a.navbar-brand {
     font-size: 100%!important;
     float: left;
 }
-/*.nav-links {*/
-
-/*    margin-left: 20%;*/
-/*}*/
+svg {
+    color: #2c3e50;
+}
 .inline-style-options input {
     width: 20%;
     margin-bottom: 1vh;
@@ -93,8 +92,9 @@ a.navbar-brand {
     box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
     border: none;
     border-radius: 1vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: 0.5vw;
+    /*padding-left: 1vw;*/
+    /*padding-right: 1vw;*/
 }
 .edit-post-button:hover {
     background: #16a085;
