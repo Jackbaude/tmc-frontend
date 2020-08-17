@@ -18,7 +18,7 @@ const Footer = () => (
                     <a className="btn-floating btn-gplus mx-1"
                        href="https://www.youtube.com/channel/UCf9SYal_h3WSoksvxLYruuQ" target="_blank"
                        rel="noreferrer noopener">
-                        <FontAwesomeIcon icon={faYoutube} size="2x"/>
+                        <FontAwesomeIcon icon={faYoutube} size="2x" color={""}/>
                     </a>
                 </nav>
             </div>

@@ -14,9 +14,9 @@ const App = () => {
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/posts' component={Posts}/>
-                    <Route path='/render-post:id' component={RenderedPost}/>
+                    <Route path='/render-post/:id' component={RenderedPost}/>
                     <Route path='/new-post' component={NewPost}/>
-                    <Route path='/edit-post:id' component={EditPost}/>
+                    <Route path='/edit-post/:id' component={EditPost}/>
                 </Switch>
             </div>
         </Router>

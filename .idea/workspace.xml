@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/storedState.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/posts.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +97,11 @@
       <workItem from="1596996342978" duration="21258000" />
       <workItem from="1597067326210" duration="13819000" />
       <workItem from="1597161125259" duration="9815000" />
-      <workItem from="1597247269937" duration="2354000" />
+      <workItem from="1597247269937" duration="18254000" />
+      <workItem from="1597290128461" duration="5354000" />
+      <workItem from="1597297297889" duration="240000" />
+      <workItem from="1597329715305" duration="5243000" />
+      <workItem from="1597687847125" duration="13520000" />
     </task>
     <servers />
   </component>
@@ -129,10 +140,10 @@
     </state>
     <state x="1513" y="722" width="1022" height="737" key="SettingsEditor/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597003002542" />
     <state x="1513" y="733" width="1022" height="737" key="SettingsEditor/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596313957307" />
-    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597078516564">
+    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597288427656">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
-    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597078516564" />
+    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597288427656" />
     <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog" timestamp="1594572310168">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -141,5 +152,9 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="2539" y="522" key="run.anything.popup/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596735539246" />
+    <state x="2538" y="521" width="672" height="678" key="search.everywhere.popup" timestamp="1597696758242">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="2538" y="521" width="672" height="678" key="search.everywhere.popup/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597696758242" />
   </component>
 </project>

@@ -26,14 +26,14 @@ const Home = () => (
                     is how we are getting the initiative off the ground, but as mentioned we are looking for help to
                     build this
                     up.</p>
-                <h2 id="license">License</h2>
-                <hr className="dividing-line"/>
-                <p>A short and simple permissive license with conditions only requiring preservation of copyright and
-                    license
-                    notices. Licensed works, modifications, and larger works may be distributed under different terms
-                    and without
-                    source code.</p>
-                <p>MIT © Jack Baude</p>
+                {/*<h2 id="license">License</h2>*/}
+                {/*<hr className="dividing-line"/>*/}
+                {/*<p>A short and simple permissive license with conditions only requiring preservation of copyright and*/}
+                {/*    license*/}
+                {/*    notices. Licensed works, modifications, and larger works may be distributed under different terms*/}
+                {/*    and without*/}
+                {/*    source code.</p>*/}
+                {/*<p>MIT © Jack Baude</p>*/}
             </div>
         </Layout>
     </div>

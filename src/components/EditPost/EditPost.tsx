@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {
     Editor,
     EditorState,
@@ -10,93 +10,36 @@ import {
 } from 'draft-js';
 import 'draft-js/dist/Draft.css'
 import Layout from "../layout";
+import {faBold} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useParams} from "react-router";
 
-
-const EditPost = () => {
-    const rawData = [{
-        "blocks": [{
-            "key": "aai25",
-            "text": "Hello this is the test of some stuff!",
-            "type": "header-one",
-            "depth": 0,
-            "inlineStyleRanges": [],
-            "entityRanges": [],
-            "data": {}
-        }, {
-            "key": "e9pi5",
-            "text": "wow such heading two",
-            "type": "header-two",
-            "depth": 0,
-            "inlineStyleRanges": [],
-            "entityRanges": [],
-            "data": {}
-        }, {
-            "key": "elm9g",
-            "text": "Boom shaka Laka",
-            "type": "header-two",
-            "depth": 0,
-            "inlineStyleRanges": [{"offset": 0, "length": 15, "style": "BOLD"}],
-            "entityRanges": [],
-            "data": {}
-        }, {
-            "key": "13ij2",
-            "text": "Booma shaka laka",
-            "type": "header-two",
-            "depth": 0,
-            "inlineStyleRanges": [{"offset": 0, "length": 16, "style": "BOLD"}, {
-                "offset": 0,
-                "length": 16,
-                "style": "ITALIC"
-            }],
-            "entityRanges": [],
-            "data": {}
-        }, {
-            "key": "8igtu",
-            "text": "Book shaka laka",
-            "type": "header-two",
-            "depth": 0,
-            "inlineStyleRanges": [{"offset": 0, "length": 15, "style": "BOLD"}, {
-                "offset": 0,
-                "length": 15,
-                "style": "ITALIC"
-            }, {"offset": 0, "length": 15, "style": "UNDERLINE"}],
-            "entityRanges": [],
-            "data": {}
-        }, {
-            "key": "2sp69",
-            "text": "BOOOM shaka laka",
-            "type": "header-two",
-            "depth": 0,
-            "inlineStyleRanges": [{"offset": 0, "length": 16, "style": "BOLD"}, {
-                "offset": 0,
-                "length": 16,
-                "style": "ITALIC"
-            }],
-            "entityRanges": [],
-            "data": {}
-        }, {
-            "key": "7ktth",
-            "text": "Boom shaka laka",
-            "type": "unstyled",
-            "depth": 0,
-            "inlineStyleRanges": [{"offset": 0, "length": 15, "style": "BOLD"}, {
-                "offset": 0,
-                "length": 15,
-                "style": "ITALIC"
-            }, {"offset": 0, "length": 15, "style": "CODE"}],
-            "entityRanges": [],
-            "data": {}
-        }], "entityMap": {}
-    }];
-
-// let parse = JSON.parse(rawData);
-// const contentState = (convertFromRaw(rawData));
+const NewPost = () => {
+    const {id} = useParams();
+    useEffect(() => {
+        getPost()
+    }, []);
     let [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty(),
+        EditorState.createEmpty()
     );
+    const [metadata, setMetadata ] = useState([])
+
+    console.log(id);
+    const getPost = async () => {
+        const response = await fetch('/__getpost__?id=' + id)
+        const data = await response.json()
+        await setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(data.body))))
+        // console.log(data.last_edited, data.title, data.description, data.tags)
+
+        // console.log(data)
+    }
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [tags, setTags] = useState('')
 
     let saveContent = (content) => {
         window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
+        console.log(convertToRaw(content))
     }
     let onChange = (editorState) => {
         const contentState = editorState.getCurrentContent();
@@ -222,22 +165,33 @@ const EditPost = () => {
     ];
 
     const keyBindingFunction = (event) => {
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === 'x') {
-            return 'strikethrough';
-        }
-
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === '7') {
-            return 'ordered-list';
-        }
-
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === '8') {
-            return 'unordered-list';
-        }
-
-        if (KeyBindingUtil.hasCommandModifier(event) && event.shiftKey && event.key === '9') {
-            return 'blockquote';
-        }
         return getDefaultKeyBinding(event);
+    }
+    const submitPost = () => {
+        var send_body = JSON.stringify({
+            title: title,
+            description: description,
+            tags: tags,
+            body: window.localStorage.getItem('content')
+        })
+
+        fetch("/__editpost__?id=" + id, {
+            // Adding method type
+            method: "POST",
+            // Adding body or contents to send
+            body: send_body,
+            // Adding headers to the request
+            headers: {
+                "Content-Type": "application/json",
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+                "Access-Control-Allow-Methods": "POST",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization"
+            }
+        })
+            .then(r => console.log(r));
+
+
     }
     return (
         <Layout>
@@ -253,6 +207,24 @@ const EditPost = () => {
                 })}
             </div>
             <form className={"submit-post"}>
+                <input
+                    type={"text"}
+                    onChange={event => setTitle(event.target.value)}
+                    placeholder={"Title"}
+                    name={"title"}
+                    required/>
+                <br/>
+                <input type={"text"}
+                       onChange={event => setDescription(event.target.value)}
+                       placeholder={"Description"}
+                       name={"description"}
+                       required/>
+                <br/>
+                <input type={"text"}
+                       onChange={event => setTags(event.target.value)}
+                       placeholder={"Tags"}
+                       name={"tags"}
+                       required/>
                 <Editor
                     editorState={editorState}
                     handleKeyCommand={handleKeyCommand}
@@ -260,10 +232,10 @@ const EditPost = () => {
                     onChange={onChange}
                     placeholder={"Start writing here!"}
                 />
-                <input type={"button"} value={"Submit"} required/>
+                <input type={"button"} value={"Submit"} onClick={submitPost} required/>
             </form>
         </Layout>
     );
 }
-export default EditPost
+export default NewPost
 

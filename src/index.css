@@ -11,17 +11,45 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+svg {
+    color: #34495e;
+}
+.link {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
 
-a {
-    color: black !important;
+.link:hover, .link:focus {
+    background-size: 100% 2px;
+}
+.navbar {
+    background: #34495e;
+    box-shadow: 0 0.2vw 1vw rgba(44, 62, 80,0.5);
+}
+.navbar a {
+    color: white!important;
+}
+.navbar svg{
+    color: white!important;
 }
 a.navbar-brand {
     font-size: 100%!important;
     float: left;
 }
-svg {
-    color: #2c3e50;
+.custom-toggler.navbar-toggler {
+    border-color: white;
 }
+/* Setting the stroke to green using rgb values (0, 128, 0) */
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 .inline-style-options input {
     width: 20%;
     margin-bottom: 1vh;
@@ -89,7 +117,7 @@ svg {
     margin-top: 3vh;
     background: #1abc9c;
     color: white !important;
-    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
+    box-shadow: 4px 4px 4px rgba(44, 62, 80, 0.5);
     border: none;
     border-radius: 1vw;
     padding: 0.5vw;
@@ -99,4 +127,46 @@ svg {
 .edit-post-button:hover {
     background: #16a085;
     box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.7);
+}
+
+.post-link-title {
+    width: fit-content;
+}
+.post-link-title h2{
+    color: black;
+}
+.post-link a:hover{
+    text-decoration: none;
+}
+.slide {
+    animation-name: slide-in;
+    animation-duration: 1s;
+    transition-timing-function: ease-in-out;
+
+}
+.flip-in {
+    animation-name: flip;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+}
+@keyframes flip {
+    from {
+        transform: rotateX(180deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateX(0deg);
+        opacity: 100;
+    }
 }

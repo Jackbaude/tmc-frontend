@@ -144,40 +144,37 @@ const NewPost = () => {
         return getDefaultKeyBinding(event);
     }
     const submitPost = () => {
-        console.log (
-            JSON.stringify({
-                title: title,
-                description: description,
-                tags: tags,
-                body: window.localStorage.getItem('content')
-            })
-        );
-        const lastEdit = new Date();
-        fetch("http://localhost:8000/__newpost__", {
+        const body = JSON.stringify({
+            title: title,
+            description: description,
+            tags: tags,
+            body: window.localStorage.getItem('content')
+        })
+        console.log(body)
+        fetch("/__newpost__", {
             // Adding method type
             method: "POST",
             // Adding body or contents to send
-            body: JSON.stringify({
-                body: window.localStorage.getItem('content'),
-                title: title,
-                tags: tags,
-                description: description
-            }),
+            body: body,
             // Adding headers to the request
             headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Access-Control-Allow-Headers" : "Content-Type",
-                "Access-Control-Allow-Origin": "http://localhost:8000/__newpost__",
-                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+                "Content-Type": "application/json",
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+                "Access-Control-Allow-Methods": "POST",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization"
             }
-        }).then(r => console.log(r));
+        })
+            .then(r => console.log(r));
+
+
     }
     return (
         <Layout>
             <div className="inline-style-options">
                 {inlineStyleButtons.map((button) => {
                     return renderInlineStyleButton(button.value, button.style);
-                })} 
+                })}
             </div>
             <div className="block-style-options">
                 {blockTypeButtons.map((button) => {
@@ -186,7 +183,6 @@ const NewPost = () => {
                 })}
             </div>
             <form className={"submit-post"}>
-
                 <input
                     type={"text"}
                     onChange={event => setTitle(event.target.value)}

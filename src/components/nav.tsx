@@ -6,41 +6,35 @@ import {faAlignJustify} from '@fortawesome/free-solid-svg-icons'
 const Nav = () => (
     <div>
         <nav className="navbar navbar-expand-lg">
-            <h1><a className="navbar-brand" href="/">Technical Minecraft Wiki</a></h1>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon">
-                    <FontAwesomeIcon icon={faAlignJustify}/>
-                </span>
-
+            <button className="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"/>
             </button>
-
-            <div className="collapse navbar-collapse nav-links" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a className="navbar-brand" href="/"><h2>Technical Minecraft Wiki</h2></a>
+                <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li className="nav-item active">
-                        <a className="nav-link" href="/posts">Posts<span className="sr-only">(current)</span></a>
+                        <a className="nav-link link" href="/">Home <span className="sr-only">(current)</span></a>
                     </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="/new-post">New Post<span className="sr-only">(current)</span></a>
+                    <li className="nav-item">
+                        <a className="nav-link link" href="/posts">Posts</a>
                     </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="/render-post">Render-Post (DEV)<span className="sr-only">(current)</span></a>
+                    <li className="nav-item">
+                        <a className="nav-link link" href="/edit-post/2">EDIT POST (DEV PURPOSE)</a>
                     </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="/edit-post">Edit-Post (DEV)<span className="sr-only">(current)</span></a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"
+                           rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub} size={"lg"}/></a>
                     </li>
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            More
-                        </a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub} size={"lg"}/> Github</a>
-                            <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="https://discord.gg/FcTFg2E" target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faDiscord} size={"lg"}/> Discord</a>
-                            <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="https://www.youtube.com/channel/UCf9SYal_h3WSoksvxLYruuQ"target="_blank"rel="noreferrer noopener"><FontAwesomeIcon icon={faYoutube} size={"lg"}/> Youtube</a>
-                        </div>
+                    <li className="nav-item">
+                        <a className="nav-link" href="https://discord.gg/FcTFg2E" target="_blank"
+                           rel="noreferrer noopener"><FontAwesomeIcon icon={faDiscord} size={"lg"}/></a>
                     </li>
                 </ul>
+                <form className="form-inline my-2 my-lg-n1">
+                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
         </nav>
     </div>
