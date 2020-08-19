@@ -2,27 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Home/Carousel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/Jumbotron.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/img/cannon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/img/hekateBorder.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/Posts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RenderedPost/renderedPost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/storedState.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/posts.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,8 +46,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.last.introduce.type" value="CONST" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tmc-wiki-backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,12 +57,19 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Home" />
+      <recent name="$PROJECT_DIR$/src/img" />
       <recent name="$PROJECT_DIR$/src/components/RenderedPost" />
       <recent name="$PROJECT_DIR$/src/components/NewPost" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/img" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -101,7 +118,10 @@
       <workItem from="1597290128461" duration="5354000" />
       <workItem from="1597297297889" duration="240000" />
       <workItem from="1597329715305" duration="5243000" />
-      <workItem from="1597687847125" duration="13520000" />
+      <workItem from="1597687847125" duration="23256000" />
+      <workItem from="1597781735270" duration="24852000" />
+      <workItem from="1597855079456" duration="5313000" />
+      <workItem from="1597870405065" duration="3117000" />
     </task>
     <servers />
   </component>
@@ -121,14 +141,26 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="1637" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594573881416" />
+    <state x="2574" y="868" width="592" height="424" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597784274327">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="2574" y="868" width="592" height="424" key="#com.intellij.fileTypes.FileTypeChooser/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597784274327" />
     <state x="2688" y="796" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1596999159690">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
     <state x="2688" y="796" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1596999159690" />
+    <state x="2608" y="825" width="524" height="510" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597784165048">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="2608" y="825" width="524" height="510" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597784165048" />
     <state x="1937" y="953" width="463" height="296" key="#com.jetbrains.plugins.reactnative.ReactNativePackagerConfigurationEditor" timestamp="1594573880802">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="1937" y="953" width="463" height="296" key="#com.jetbrains.plugins.reactnative.ReactNativePackagerConfigurationEditor/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594573880802" />
+    <state x="2543" y="912" width="524" height="337" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1597788765749">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="2543" y="912" width="524" height="337" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597788765749" />
     <state x="4402" y="922" width="357" height="449" key="FileChooserDialogImpl" timestamp="1597011978891">
       <screen x="3840" y="240" width="1080" height="1920" />
     </state>
@@ -144,6 +176,10 @@
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
     <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597288427656" />
+    <state x="2881" y="182" width="1240" height="2044" key="dock-window-1" timestamp="1597812341628">
+      <screen x="0" y="27" width="3840" height="2100" />
+    </state>
+    <state x="2881" y="182" width="1240" height="2044" key="dock-window-1/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597812341628" />
     <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog" timestamp="1594572310168">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>

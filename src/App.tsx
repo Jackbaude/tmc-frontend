@@ -6,18 +6,21 @@ import RenderedPost from "./components/RenderedPost/renderedPost";
 import Nav from "./components/nav";
 import NewPost from "./components/NewPost/NewPost";
 import EditPost from "./components/EditPost/EditPost";
+import Layout from "./components/layout";
 
 const App = () => {
     return (
         <Router>
             <div>
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    <Route path='/posts' component={Posts}/>
-                    <Route path='/render-post/:id' component={RenderedPost}/>
-                    <Route path='/new-post' component={NewPost}/>
-                    <Route path='/edit-post/:id' component={EditPost}/>
-                </Switch>
+                <Layout>
+                    <Switch>
+                        <Route exact path='/' component={Home}/>
+                        <Route path='/posts' component={Posts}/>
+                        <Route path='/render-post/:id' component={RenderedPost}/>
+                        <Route path='/new-post' component={NewPost}/>
+                        <Route path='/edit-post/:id' component={EditPost}/>
+                    </Switch>
+                </Layout>
             </div>
         </Router>
     );

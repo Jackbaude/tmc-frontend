@@ -1,41 +1,59 @@
 import React, {useEffect, useState} from "react"
-import Draft, {ContentState, convertFromRaw, Editor, EditorState,} from 'draft-js';
+import Draft, {convertFromRaw, Editor, EditorState,} from 'draft-js';
 import 'draft-js/dist/Draft.css'
-import Layout from "../layout";
+
 import {useParams} from "react-router";
-import {render} from "react-dom";
+
 
 const RenderedPost = () => {
     const {id} = useParams();
+    const [fetchState, setFetchState] = useState("loading")
     useEffect(() => {
         getPost()
+            //If the fetch got the data make the state a success
+            .then(() => {
+                setFetchState("success")
+            })
+            //If the fetch was bad set the state of the fecth to failed
+            .catch(() => {
+                setFetchState("failed")
+            })
     }, []);
     const [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty()
     );
     const [title, setTitle] = useState('')
     const [lastEdited, setLastEdited] = useState('')
-
-    console.log(id);
+    const [resGood, setResGood] = useState(false)
     const getPost = async () => {
         const response = await fetch('/__getpost__?id=' + id)
         const data = await response.json()
         console.log(data)
-        await setTitle(data.title)
-        await setLastEdited(data.last_edited)
-        await setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(data.body))))
-
+        setTitle(data.title)
+        setLastEdited(data.last_edited)
+        setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(data.body))))
+        if (response.ok) {
+            setResGood(true)
+        }
     }
-
-    if (!editorState) {
+    // if the post is still loading just render a loading bar
+    if (fetchState === "loading") {
         return (
-            <div className="spinner-border text-primary" role="status">
-                <span className="sr-only">Loading...</span>
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
             </div>
-        );
+        )
+    }
+    //if we caught a error send a failed message
+    else if (fetchState === "failed") {
+        return (
+            <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Are you sure this post exists? Is the API down? Check with Jakku on the Discord.</div>
+        )
     }
     return (
-        <Layout>
+        <div>
             <h1>{title}</h1>
             <p>Last Edited: {lastEdited}</p>
             <Editor
@@ -44,7 +62,7 @@ const RenderedPost = () => {
                 onChange={setEditorState}
             />
             <a className={"edit-post-button"} href={"/edit-post/" + id}>Edit Post</a>
-        </Layout>
+        </div>
     );
 }
 export default RenderedPost

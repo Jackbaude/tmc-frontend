@@ -1,9 +1,10 @@
-import React, {useState} from "react"
-import {Editor, EditorState, RichUtils, getDefaultKeyBinding, KeyBindingUtil, convertToRaw} from 'draft-js';
+/*
+TODO add discord auth and give person a role when they make a post
+ */
+import React,  {useState} from "react"
+import {Editor, EditorState, RichUtils, getDefaultKeyBinding, convertToRaw} from 'draft-js';
 import 'draft-js/dist/Draft.css'
-import Layout from "../layout";
-import {faBold} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 
 const NewPost = () => {
     let [editorState, setEditorState] = useState(() =>
@@ -170,7 +171,7 @@ const NewPost = () => {
 
     }
     return (
-        <Layout>
+        <div>
             <div className="inline-style-options">
                 {inlineStyleButtons.map((button) => {
                     return renderInlineStyleButton(button.value, button.style);
@@ -185,6 +186,7 @@ const NewPost = () => {
             <form className={"submit-post"}>
                 <input
                     type={"text"}
+                    id={"title"}
                     onChange={event => setTitle(event.target.value)}
                     placeholder={"Title"}
                     name={"title"}
@@ -208,9 +210,10 @@ const NewPost = () => {
                     onChange={onChange}
                     placeholder={"Start writing here!"}
                 />
-                <input type={"button"} value={"Submit"} onClick={submitPost} required/>
+
+                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"} onClick={submitPost}>Submit</button>
             </form>
-        </Layout>
+        </div>
     );
 }
 export default NewPost

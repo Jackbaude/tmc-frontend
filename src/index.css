@@ -1,6 +1,9 @@
 /*
 Color pallet: https://flatuicolors.com/palette/defo
 */
+/*
+TODO organize this
+*/
 
 
 body {
@@ -12,15 +15,20 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 svg {
-    color: #34495e;
+    color: white;
 }
+#page-container {
+    min-height: 100vh;
+    position: relative;
+}
+
 .link {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0% 100%;
     background-repeat: no-repeat;
     background-size: 0% 2px;
-    transition: background-size .3s;
+    transition: background-size .5s;
 }
 
 .link:hover, .link:focus {
@@ -36,9 +44,13 @@ svg {
 .navbar svg{
     color: white!important;
 }
+
 a.navbar-brand {
-    font-size: 100%!important;
-    float: left;
+    /*font-size: 100%!important;*/
+    /*float: left;*/
+}
+a.nav-link {
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
 }
 .custom-toggler.navbar-toggler {
     border-color: white;
@@ -47,15 +59,39 @@ a.navbar-brand {
 
 .custom-toggler .navbar-toggler-icon {
     background-image: url(
-    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
+.jumbotron {
+    box-shadow: 0 0.2vw 1vw rgba(44, 62, 80,0.3);
 
+}
+.jumbo-link {
+    margin-left: 1rem;
+    background: #34495e!important;
+    color: white!important;
+}
+.page-footer {
+    background: #34495e;
+    box-shadow: 0 0.2vw 1vw rgba(44, 62, 80,0.5);
+    margin-top: 10vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10rem;
+    color: white!important;
+}
+.page-footer a{
+    color: white!important;
+}
+.footer-icon {
+    margin: 1rem 1rem;
+}
 .inline-style-options input {
     width: 20%;
     margin-bottom: 1vh;
     padding:1px;
     background:#34495e;
-    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
+    box-shadow: 0 4px 4px rgb(44, 62, 80, 0.5);
     border: none;
     color: white!important;
 }
@@ -64,7 +100,7 @@ a.navbar-brand {
     width: 16.66%;
     margin-bottom: 1vh;
     background: #34495e;
-    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
+    box-shadow: 0 4px 4px rgb(44, 62, 80, 0.5);
     border: none;
     color: white !important;
 
@@ -88,31 +124,26 @@ a.navbar-brand {
 }
 
 .submit-post input {
-    width: 20%;
     margin-bottom: 1vh;
     padding: 1px;
     border: none;
+}
+#title-input {
+    font-size: 3rem;
+    width: 100%;
+    overflow-wrap: break-word;
+    white-space: initial;
+}
+#description-input {
+    width: 100%;
+}
+.btn {
+    margin-top: 5vw;
 
 }
-
-.submit-post input[type=button] {
-    margin-top: 3vh;
-    background: #1abc9c;
-    color: white !important;
-    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.5);
-    border: none;
-    border-radius: 1vw;
-}
-
-.submit-post input[type=button]:hover {
-    background: #16a085;
-    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.7);
-}
-
 .submit-post input::placeholder {
     color: silver;
 }
-
 .edit-post-button {
     margin-top: 3vh;
     background: #1abc9c;
@@ -121,22 +152,24 @@ a.navbar-brand {
     border: none;
     border-radius: 1vw;
     padding: 0.5vw;
-    /*padding-left: 1vw;*/
-    /*padding-right: 1vw;*/
 }
 .edit-post-button:hover {
     background: #16a085;
     box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.7);
 }
-
+.post-link {
+    padding-bottom: 1vh;
+    border-bottom: 1px silver solid;
+}
 .post-link-title {
     width: fit-content;
 }
-.post-link-title h2{
-    color: black;
-}
 .post-link a:hover{
     text-decoration: none;
+}
+.spinner-border {
+    width: 4rem!important;
+    height: 4rem!important;
 }
 .slide {
     animation-name: slide-in;
@@ -149,6 +182,7 @@ a.navbar-brand {
     animation-duration: 0.75s;
     animation-timing-function: ease-in-out;
 }
+
 @keyframes slide-in {
     from {
         opacity: 0;
@@ -169,4 +203,38 @@ a.navbar-brand {
         transform: rotateX(0deg);
         opacity: 100;
     }
+}
+@keyframes jello {
+    11.1% {
+        transform: none
+    }
+    22.2% {
+        transform: skewX(-12.5deg) skewY(-12.5deg)
+    }
+    33.3% {
+        transform: skewX(6.25deg) skewY(6.25deg)
+    }
+    44.4% {
+        transform: skewX(-3.125deg) skewY(-3.125deg)
+    }
+    55.5% {
+        transform: skewX(1.5625deg) skewY(1.5625deg)
+    }
+    66.6% {
+        transform: skewX(-0.78125deg) skewY(-0.78125deg)
+    }
+    77.7% {
+        transform: skewX(0.390625deg) skewY(0.390625deg)
+    }
+    88.8% {
+        transform: skewX(-0.1953125deg) skewY(-0.1953125deg)
+    }
+    100% {
+        transform: none
+    }
+}
+
+.jello {
+    animation: jello 1s;
+    transform-origin: center
 }

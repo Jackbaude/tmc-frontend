@@ -9,29 +9,42 @@ import {
     convertFromRaw
 } from 'draft-js';
 import 'draft-js/dist/Draft.css'
-import Layout from "../layout";
-import {faBold} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useParams} from "react-router";
 
 const NewPost = () => {
     const {id} = useParams();
+    const [fetchState, setFetchState] = useState("loading")
     useEffect(() => {
         getPost()
+            //If the fetch got the data make the state a success
+            .then(() => {
+                setFetchState("success")
+            })
+            //If the fetch was bad set the state of the fecth to failed
+            .catch(() => {
+                setFetchState("failed")
+            })
     }, []);
     let [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty()
     );
-    const [metadata, setMetadata ] = useState([])
-
-    console.log(id);
+    const [resGood, setResGood] = useState(false)
+    const postGood = () => {
+        return (
+            <div className="alert alert-danger" role="alert">Sorry Looks like this post doesnt exist. Check out some
+                other <a href="/posts" className="alert-link">Posts</a></div>
+        )
+    }
     const getPost = async () => {
         const response = await fetch('/__getpost__?id=' + id)
         const data = await response.json()
+        await setTitle(data.title)
+        await setDescription(data.description)
+        await setTags(data.tags)
         await setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(data.body))))
-        // console.log(data.last_edited, data.title, data.description, data.tags)
-
-        // console.log(data)
+        if (response.ok) {
+            setResGood(true)
+        }
     }
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -193,8 +206,24 @@ const NewPost = () => {
 
 
     }
-    return (
-        <Layout>
+    // if the post is still loading just render a loading bar
+    if (fetchState === "loading") {
+        return (
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        )
+    }
+    //if we caught a error send a failed message
+    else if (fetchState === "failed") {
+        return (
+            <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Are you sure this post exists? Is the API down? Check with Jakku on the Discord.</div>
+        )
+    }
+    else return (
+        <div>
             <div className="inline-style-options">
                 {inlineStyleButtons.map((button) => {
                     return renderInlineStyleButton(button.value, button.style);
@@ -209,21 +238,27 @@ const NewPost = () => {
             <form className={"submit-post"}>
                 <input
                     type={"text"}
+                    id={"title-input"}
                     onChange={event => setTitle(event.target.value)}
                     placeholder={"Title"}
                     name={"title"}
+                    defaultValue={title}
                     required/>
                 <br/>
                 <input type={"text"}
+                       id={"description-input"}
                        onChange={event => setDescription(event.target.value)}
                        placeholder={"Description"}
                        name={"description"}
+                       defaultValue={description}
                        required/>
                 <br/>
                 <input type={"text"}
+                       id={"tag-input"}
                        onChange={event => setTags(event.target.value)}
                        placeholder={"Tags"}
                        name={"tags"}
+                       defaultValue={tags}
                        required/>
                 <Editor
                     editorState={editorState}
@@ -232,9 +267,13 @@ const NewPost = () => {
                     onChange={onChange}
                     placeholder={"Start writing here!"}
                 />
-                <input type={"button"} value={"Submit"} onClick={submitPost} required/>
+                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"}
+                        onClick={submitPost}>Submit
+                </button>
             </form>
-        </Layout>
+        </div>
+
+
     );
 }
 export default NewPost
