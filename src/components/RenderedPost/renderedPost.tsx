@@ -61,7 +61,7 @@ const RenderedPost = () => {
                 readOnly={true}
                 onChange={setEditorState}
             />
-            <a className={"edit-post-button"} href={"/edit-post/" + id}>Edit Post</a>
+            <a className={"btn btn-outline-primary btn-lg"} href={"/edit-post/" + id}>Edit Post</a>
         </div>
     );
 }

@@ -267,9 +267,7 @@ const NewPost = () => {
                     onChange={onChange}
                     placeholder={"Start writing here!"}
                 />
-                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"}
-                        onClick={submitPost}>Submit
-                </button>
+                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"} onClick={submitPost}>Submit</button>
             </form>
         </div>
 
