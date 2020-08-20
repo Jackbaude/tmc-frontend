@@ -1,7 +1,7 @@
 /*
 TODO add discord auth and give person a role when they make a post
  */
-import React,  {useState} from "react"
+import React, {useState} from "react"
 import {Editor, EditorState, RichUtils, getDefaultKeyBinding, convertToRaw} from 'draft-js';
 import 'draft-js/dist/Draft.css'
 
@@ -145,19 +145,23 @@ const NewPost = () => {
         return getDefaultKeyBinding(event);
     }
     const submitPost = () => {
+        if ((title ==="" || description === "" || tags ==="")) {
+            alert("Woah there are you sure all the fields are filled in?")
+            return;
+        }
         const body = JSON.stringify({
             title: title,
             description: description,
             tags: tags,
             body: window.localStorage.getItem('content')
         })
-        console.log(body)
         fetch("/__newpost__", {
             // Adding method type
             method: "POST",
             // Adding body or contents to send
             body: body,
             // Adding headers to the request
+            redirect: "follow",
             headers: {
                 "Content-Type": "application/json",
                 'Accept': 'application/json',
@@ -165,13 +169,11 @@ const NewPost = () => {
                 "Access-Control-Allow-Methods": "POST",
                 "Access-Control-Allow-Headers": "Content-Type, Authorization"
             }
-        })
-            .then(r => console.log(r));
-
-
+        }).then(r => window.location.href =r.url)
     }
     return (
         <div>
+
             <div className="inline-style-options">
                 {inlineStyleButtons.map((button) => {
                     return renderInlineStyleButton(button.value, button.style);

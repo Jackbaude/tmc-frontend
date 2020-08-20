@@ -3,6 +3,8 @@ Color pallet: https://flatuicolors.com/palette/defo
 */
 /*
 TODO organize this
+TODO dark mode and light mode toggle
+
 */
 
 
@@ -51,6 +53,9 @@ a.navbar-brand {
 }
 a.nav-link {
     text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+.nav-item {
+    margin-right: 0.5vw;
 }
 .custom-toggler.navbar-toggler {
     border-color: white;
@@ -139,6 +144,7 @@ a.nav-link {
 }
 .btn {
     margin-top: 5vw;
+    margin-bottom: 5vw;
 
 }
 .submit-post input::placeholder {
@@ -161,6 +167,15 @@ a.nav-link {
     padding-bottom: 1vh;
     border-bottom: 1px silver solid;
 }
+.post-link-jumbo{
+    padding-bottom: 1vh;
+    text-decoration: none;
+}
+.post-link-jumbo a:hover{
+    text-decoration: none;
+}
+
+
 .post-link-title {
     width: fit-content;
 }

@@ -12,7 +12,7 @@ const Nav = () => (
             </button>
             <div className="collapse navbar-collapse" id="navbarToggler">
                 <a className="navbar-brand" href="/"><h2 className={"flip-in"}>Technical Minecraft Wiki</h2></a>
-                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li className="nav-item active">
                         <a className="nav-link link" href="/">Home <span className="sr-only">(current)</span></a>
                     </li>

@@ -1,13 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {
-    Editor,
-    EditorState,
-    RichUtils,
-    getDefaultKeyBinding,
-    KeyBindingUtil,
-    convertToRaw,
-    convertFromRaw
-} from 'draft-js';
+import {convertFromRaw, convertToRaw, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css'
 import {useParams} from "react-router";
 
@@ -181,6 +173,10 @@ const NewPost = () => {
         return getDefaultKeyBinding(event);
     }
     const submitPost = () => {
+        if ((title ==="" || description === "" || tags ==="" || window.localStorage.getItem('content') === undefined)) {
+            alert("Woah there are you sure all the fields are filled in?")
+            return;
+        }
         var send_body = JSON.stringify({
             title: title,
             description: description,
@@ -202,7 +198,12 @@ const NewPost = () => {
                 "Access-Control-Allow-Headers": "Content-Type, Authorization"
             }
         })
-            .then(r => console.log(r));
+            .then(r => window.location.href = r.url)
+            .then(() => {
+
+                alert("Your post was sent in!")
+
+            })
 
 
     }
@@ -219,11 +220,13 @@ const NewPost = () => {
     //if we caught a error send a failed message
     else if (fetchState === "failed") {
         return (
-            <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Are you sure this post exists? Is the API down? Check with Jakku on the Discord.</div>
+            <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Are you sure
+                this post exists? Is the API down? Check with Jakku on the Discord.</div>
         )
-    }
-    else return (
+    } else return (
+
         <div>
+            {alert}
             <div className="inline-style-options">
                 {inlineStyleButtons.map((button) => {
                     return renderInlineStyleButton(button.value, button.style);
@@ -235,6 +238,7 @@ const NewPost = () => {
 
                 })}
             </div>
+
             <form className={"submit-post"}>
                 <input
                     type={"text"}
@@ -267,7 +271,9 @@ const NewPost = () => {
                     onChange={onChange}
                     placeholder={"Start writing here!"}
                 />
-                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"} onClick={submitPost}>Submit</button>
+                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"}
+                        onClick={submitPost}>Submit
+                </button>
             </form>
         </div>
 
