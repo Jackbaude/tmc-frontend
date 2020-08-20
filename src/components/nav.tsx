@@ -22,9 +22,6 @@ const Nav = () => (
                     <li className="nav-item">
                         <a className="nav-link link" href="/new-post">New Post</a>
                     </li>
-                    {/*<li className="nav-item">*/}
-                    {/*    <a className="nav-link link" href="/edit-post/2">EDIT POST (DEV PURPOSE)</a>*/}
-                    {/*</li>*/}
                     <li className="nav-item">
                         <a className="nav-link" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"
                            rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub} size={"lg"}/></a>
@@ -35,8 +32,8 @@ const Nav = () => (
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-n1">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button className="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    <input className="form-control mr-sm-2 disabled" type="search" placeholder="Search" aria-label="Search"/>
+                        <button className="btn btn-outline-light my-2 my-sm-0 " type="submit">Search</button>
                 </form>
             </div>
         </nav>

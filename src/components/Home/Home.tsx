@@ -3,8 +3,7 @@ import Carousel from "./Carousel";
 import Jumbotron from "./Jumbotron";
 
 const Home = () => (
-    <div>
-
+    <div className={"home"}>
             {/*<Carousel/>*/}
             <Jumbotron/>
             <h2 id="purpose">Purpose</h2>
