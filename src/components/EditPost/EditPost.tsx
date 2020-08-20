@@ -6,6 +6,10 @@ import {useParams} from "react-router";
 const NewPost = () => {
     const {id} = useParams();
     const [fetchState, setFetchState] = useState("loading")
+    const [failed, setFailed] = useState(false);
+    const [submitted, setSubmitted] = useState(false)
+    const [madeChanges, setMadeChanges] = useState(false)
+    const [success, setSuccess] = useState(false)
     useEffect(() => {
         getPost()
             //If the fetch got the data make the state a success
@@ -47,6 +51,8 @@ const NewPost = () => {
         console.log(convertToRaw(content))
     }
     let onChange = (editorState) => {
+        //if changes were made to the editor state set the made chanegs to true
+        setMadeChanges(true)
         const contentState = editorState.getCurrentContent();
         saveContent(contentState);
         console.log('content state', convertToRaw(contentState));
@@ -173,8 +179,9 @@ const NewPost = () => {
         return getDefaultKeyBinding(event);
     }
     const submitPost = () => {
-        if ((title ==="" || description === "" || tags ==="" || window.localStorage.getItem('content') === undefined)) {
-            alert("Woah there are you sure all the fields are filled in?")
+        if ((title === "" || description === "" || tags === "" || window.localStorage.getItem('content') === undefined)) {
+            setFailed(true)
+            window.scrollTo({top: 0, left: 0, behavior: "smooth"})
             return;
         }
         var send_body = JSON.stringify({
@@ -198,14 +205,31 @@ const NewPost = () => {
                 "Access-Control-Allow-Headers": "Content-Type, Authorization"
             }
         })
-            .then(r => window.location.href = r.url)
+            // .then(r => window.location.href = r.url)
             .then(() => {
-
-                alert("Your post was sent in!")
-
+                setSubmitted(true)
+                setSuccess(true)
             })
-
-
+    }
+    const failedPost = () => {
+        if (failed) {
+            return (<div className="alert alert-danger show" role="alert">
+                <strong>Woah there something went wrong!</strong> Are you sure you filled in all the fields?
+            </div>)
+        } else {
+            return
+        }
+    }
+    const submitButton = () => {
+        if (madeChanges) {
+            return (
+                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"}
+                        onClick={submitPost}>Edit Post
+                </button>
+            )
+        } else {
+            return <div/>
+        }
     }
     // if the post is still loading just render a loading bar
     if (fetchState === "loading") {
@@ -223,62 +247,76 @@ const NewPost = () => {
             <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Are you sure
                 this post exists? Is the API down? Check with Jakku on the Discord.</div>
         )
-    } else return (
+    }
+    if (!success) {
+        return (
+            <div>
+                {failedPost()}
+                <div className="inline-style-options">
+                    {inlineStyleButtons.map((button) => {
+                        return renderInlineStyleButton(button.value, button.style);
+                    })}
+                </div>
+                <div className="block-style-options">
+                    {blockTypeButtons.map((button) => {
+                        return renderBlockButton(button.value, button.block);
 
-        <div>
-            {alert}
-            <div className="inline-style-options">
-                {inlineStyleButtons.map((button) => {
-                    return renderInlineStyleButton(button.value, button.style);
-                })}
+                    })}
+                </div>
+                <form className={"submit-post"}>
+                    <input
+                        type={"text"}
+                        id={"title"}
+                        onChange={event => {
+                            setTitle(event.target.value)
+                            setMadeChanges(true)
+                        }}
+                        placeholder={"Title"}
+                        name={"title"}
+                        required/>
+                    <br/>
+                    <input type={"text"}
+                           onChange={event => {
+                               setDescription(event.target.value)
+                               setMadeChanges(true)
+                           }}
+                           placeholder={"Description"}
+                           name={"description"}
+                           required/>
+                    <br/>
+                    <input type={"text"}
+                           onChange={event => {
+                               setTags(event.target.value)
+                               setMadeChanges(true)
+                           }}
+                           placeholder={"Tags"}
+                           name={"tags"}
+                           required/>
+                    <Editor
+                        editorState={editorState}
+                        handleKeyCommand={handleKeyCommand}
+                        keyBindingFn={keyBindingFunction}
+                        onChange={onChange}
+                        placeholder={"Start writing here!"}
+
+                    />
+                    <div className={"spacing-block"}/>
+                    {submitButton()}
+                </form>
             </div>
-            <div className="block-style-options">
-                {blockTypeButtons.map((button) => {
-                    return renderBlockButton(button.value, button.block);
-
-                })}
+        );
+    } else {
+        return (
+            <div className="alert alert-success" role="alert">
+                <h4 className="alert-heading">Success!</h4>
+                <hr/>
+                <p>We appreciate your contribution to not only the technical minecraft wiki, but also the community as a
+                    whole. People like you
+                    make this community fun and expanding. Keep up the great work, and we hope to see you again!
+                </p>
             </div>
-
-            <form className={"submit-post"}>
-                <input
-                    type={"text"}
-                    id={"title-input"}
-                    onChange={event => setTitle(event.target.value)}
-                    placeholder={"Title"}
-                    name={"title"}
-                    defaultValue={title}
-                    required/>
-                <br/>
-                <input type={"text"}
-                       id={"description-input"}
-                       onChange={event => setDescription(event.target.value)}
-                       placeholder={"Description"}
-                       name={"description"}
-                       defaultValue={description}
-                       required/>
-                <br/>
-                <input type={"text"}
-                       id={"tag-input"}
-                       onChange={event => setTags(event.target.value)}
-                       placeholder={"Tags"}
-                       name={"tags"}
-                       defaultValue={tags}
-                       required/>
-                <Editor
-                    editorState={editorState}
-                    handleKeyCommand={handleKeyCommand}
-                    keyBindingFn={keyBindingFunction}
-                    onChange={onChange}
-                    placeholder={"Start writing here!"}
-                />
-                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"}
-                        onClick={submitPost}>Submit
-                </button>
-            </form>
-        </div>
-
-
-    );
+        )
+    }
 }
 export default NewPost
 
