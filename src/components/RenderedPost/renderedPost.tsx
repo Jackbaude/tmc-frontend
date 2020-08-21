@@ -34,6 +34,7 @@ const RenderedPost = () => {
         setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(data.body))))
         if (response.ok) {
             setResGood(true)
+
         }
     }
     // if the post is still loading just render a loading bar
@@ -61,7 +62,7 @@ const RenderedPost = () => {
                 readOnly={true}
                 onChange={setEditorState}
             />
-            <a className={"btn btn-outline-primary btn-lg"} href={"/edit-post/" + id}>Edit Post</a>
+            <a className={"btn btn-primary btn-lg"} href={"/edit-post/" + id}>Edit Post</a>
         </div>
     );
 }

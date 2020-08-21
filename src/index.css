@@ -6,26 +6,71 @@ TODO organize this
 TODO dark mode and light mode toggle
 
 */
-
-
-body {
-    margin: 0;
+:root {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.home {
-    margin-bottom: 5vw;
+html[data-theme='light'] {
+    /*default font size*/
+    --global-font-size: 1rem;
+    /*default text colors*/
+    --global-text-color-primary: #000000;
+    --global-text-color-secondary: #ffffff;
+    /*default background colors*/
+    --global-bg-color-primary: #ffffff;
+    --global-bg-color-secondary:#34495e;
+    /*default box shadow color*/
+    --global-box-shadow-color: rgba(44, 62, 80, 0.5);
+    /*default colors*/
+    --global-color-primary: #34495e;
+    --global-color-secondary: #2c3e50;
+    --global-color-tertiary: #187EF7;
+    /*Jumbotron background*/
+    --global-jumbo-bg-color: rgba(52, 73, 94,0.1)
+
 }
-svg {
-    color: white;
+html[data-theme='dark'] {
+    /*default font size*/
+    --global-font-size: 1rem;
+    /*default text colors*/
+    --global-text-color-primary: #ffffff;
+    --global-text-color-secondary: #000000;
+    /*default background colors*/
+    --global-bg-color-primary: #34495e;
+    --global-bg-color-secondary: #2d3436;
+    /*default box shadow color*/
+    --global-box-shadow-color: rgb(45, 52, 54,0.5);
+    /*default colors*/
+    --global-color-primary: #34495e;
+    --global-color-secondary: #2c3e50;
+    --global-color-tertiary: #187EF7;
+    /*Jumbotron background*/
+    --global-jumbo-bg-color: #2d3436;
+
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
 }
 #page-container {
     min-height: 100vh;
     position: relative;
+    background: var(--global-bg-color-primary);
+    color: var(--global-text-color-primary);
 }
+svg {
+    color: white;
+}
+.home {
+    margin-bottom: 5vw;
+}
+
+
 
 .link {
     text-decoration: none;
@@ -34,26 +79,22 @@ svg {
     background-repeat: no-repeat;
     background-size: 0% 2px;
     transition: background-size .5s;
+    color: var(--global-text-color-primary);
 }
-
 .link:hover, .link:focus {
     background-size: 100% 2px;
 }
 .navbar {
-    background: #34495e;
-    box-shadow: 0 0.2vw 1vw rgba(44, 62, 80,0.5);
+    background: var(--global-bg-color-secondary);
+    box-shadow: 0 0.2vw 1vw var(--global-box-shadow-color);
 }
 .navbar a {
+    /*Override the bootstrap color*/
+    /*color: var(--global-text-color-secondary)!important;*/
     color: white!important;
-}
-.navbar svg{
-    color: white!important;
+
 }
 
-a.navbar-brand {
-    /*font-size: 100%!important;*/
-    /*float: left;*/
-}
 a.nav-link {
     text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
 }
@@ -61,7 +102,7 @@ a.nav-link {
     margin-right: 0.5vw;
 }
 .custom-toggler.navbar-toggler {
-    border-color: white;
+    border-color: var(--global-text-color-secondary);
 }
 /* Setting the stroke to green using rgb values (0, 128, 0) */
 
@@ -70,64 +111,69 @@ a.nav-link {
     "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 .jumbotron {
-    box-shadow: 0 0.2vw 1vw rgba(44, 62, 80,0.3);
+    background: var(--global-jumbo-bg-color)!important;
+    box-shadow: 0 0.2vw 1vw var(--global-box-shadow-color);
+    color: var(--global-text-color-primary);
 
 }
 .jumbo-link {
     margin-left: 1rem;
-    background: #34495e!important;
+    /*Override bootstrap color of the button*/
+    background: var(--global-bg-color-secondary)!important;
     color: white!important;
 }
 .page-footer {
-    background: #34495e;
-    box-shadow: 0 0.2vw 1vw rgba(44, 62, 80,0.5);
+    background: var(--global-bg-color-secondary);
+    box-shadow: 0 0.2vw 1vw var(--global-box-shadow-color);
     margin-top: 10vh;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 10rem;
+    /*color: var(--global-text-color-secondary)!important;*/
     color: white!important;
 }
 .page-footer a{
+    /*color: var(--global-text-color-secondary)!important;*/
     color: white!important;
 }
 .footer-icon {
     margin: 1rem 1rem;
 }
+/*TODO fix this so same class for all the buttons and different classes for the size of the button*/
 .inline-style-options input {
     width: 20%;
     margin-bottom: 1vh;
     padding:1px;
-    background:#34495e;
-    box-shadow: 0 4px 4px rgb(44, 62, 80, 0.5);
+    background: var(--global-bg-color-secondary);
+    box-shadow: 0 4px 4px var(--global-box-shadow-color);
     border: none;
-    color: white!important;
+    color: var(--global-text-color-secondary);
 }
 
 .block-style-options input {
     width: 16.66%;
     margin-bottom: 1vh;
-    background: #34495e;
-    box-shadow: 0 4px 4px rgb(44, 62, 80, 0.5);
+    background: var(--global-bg-color-secondary);
+    box-shadow: 0 4px 4px var(--global-box-shadow-color);
     border: none;
-    color: white !important;
-
+    color: var(--global-text-color-secondary);
 }
 
 .inline-style-options input:hover {
-    background: #2c3e50;
+    background: var(--global-color-secondary);
 }
 
 .block-style-options input:hover {
-    background: #2c3e50;
+    background: var(--global-color-secondary);
 }
 
 .block-style-options input[type="button"].active {
-    background-color: #2980b9;
+    background-color: var(--global-color-tertiary);
     border-color: transparent;
 }
 .inline-style-options input[type="button"].active {
-    background-color: #2980b9;
+    background-color: var(--global-color-tertiary);
     border-color: transparent;
 }
 .spacing-block {
@@ -135,6 +181,8 @@ a.nav-link {
     width: 100%;
 }
 .submit-post input {
+    background: var(--global-bg-color-primary);
+    color: currentColor;
     margin-bottom: 1vh;
     padding: 1px;
     border: none;
@@ -155,19 +203,6 @@ a.nav-link {
 }
 .submit-post input::placeholder {
     color: silver;
-}
-.edit-post-button {
-    margin-top: 3vh;
-    background: #1abc9c;
-    color: white !important;
-    box-shadow: 4px 4px 4px rgba(44, 62, 80, 0.5);
-    border: none;
-    border-radius: 1vw;
-    padding: 0.5vw;
-}
-.edit-post-button:hover {
-    background: #16a085;
-    box-shadow: 4px 4px 4px rgb(44, 62, 80, 0.7);
 }
 .post-link {
     padding-bottom: 1vh;
@@ -192,6 +227,69 @@ a.nav-link {
     width: 4rem!important;
     height: 4rem!important;
 }
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/*Animation Classes*/
 .slide {
     animation-name: slide-in;
     animation-duration: 1s;
@@ -203,7 +301,12 @@ a.nav-link {
     animation-duration: 0.75s;
     animation-timing-function: ease-in-out;
 }
+.jello {
+    animation: jello 1s;
+    transform-origin: center
+}
 
+/*Animation keyframes*/
 @keyframes slide-in {
     from {
         opacity: 0;
@@ -255,7 +358,3 @@ a.nav-link {
     }
 }
 
-.jello {
-    animation: jello 1s;
-    transform-origin: center
-}

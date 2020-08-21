@@ -224,7 +224,7 @@ const NewPost = () => {
     const submitButton = () => {
         if (madeChanges) {
             return (
-                <button type="button" className={"btn btn-outline-primary btn-lg"} value={"Submit"}
+                <button type="button" className={"btn btn-primary btn-lg"} value={"Submit"}
                         onClick={submitPost}>Edit Post
                 </button>
             )
