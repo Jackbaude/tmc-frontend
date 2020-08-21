@@ -13,7 +13,8 @@ TODO dark mode and light mode toggle
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-html[data-theme='light'] {
+/*Light themed */
+html {
     /*default font size*/
     --global-font-size: 1rem;
     /*default text colors*/
