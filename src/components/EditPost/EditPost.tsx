@@ -34,6 +34,7 @@ const NewPost = () => {
     const getPost = async () => {
         const response = await fetch('/__getpost__?id=' + id)
         const data = await response.json()
+        console.log(data)
         await setTitle(data.title)
         await setDescription(data.description)
         await setTags(data.tags)
@@ -273,6 +274,7 @@ const NewPost = () => {
                         }}
                         placeholder={"Title"}
                         name={"title"}
+                        defaultValue={title}
                         required/>
                     <br/>
                     <input type={"text"}
@@ -282,6 +284,7 @@ const NewPost = () => {
                            }}
                            placeholder={"Description"}
                            name={"description"}
+                           defaultValue={description}
                            required/>
                     <br/>
                     <input type={"text"}
@@ -291,6 +294,7 @@ const NewPost = () => {
                            }}
                            placeholder={"Tags"}
                            name={"tags"}
+                           defaultValue={tags}
                            required/>
                     <Editor
                         editorState={editorState}
