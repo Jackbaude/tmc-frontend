@@ -13,7 +13,8 @@ TODO dark mode and light mode toggle
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-/*Light themed */
+
+/*default css colors*/
 html {
     /*default font size*/
     --global-font-size: 1rem;
@@ -22,7 +23,7 @@ html {
     --global-text-color-secondary: #ffffff;
     /*default background colors*/
     --global-bg-color-primary: #ffffff;
-    --global-bg-color-secondary:#34495e;
+    --global-bg-color-secondary: #34495e;
     /*default box shadow color*/
     --global-box-shadow-color: rgba(44, 62, 80, 0.5);
     /*default colors*/
@@ -30,26 +31,29 @@ html {
     --global-color-secondary: #2c3e50;
     --global-color-tertiary: #187EF7;
     /*Jumbotron background*/
-    --global-jumbo-bg-color: rgba(52, 73, 94,0.1)
+    --global-jumbo-bg-color: rgba(52, 73, 94, 0.1)
 
 }
+
 html[data-theme='dark'] {
     /*default font size*/
     --global-font-size: 1rem;
+    font-weight: lighter !important;
     /*default text colors*/
     --global-text-color-primary: #ffffff;
     --global-text-color-secondary: #000000;
     /*default background colors*/
-    --global-bg-color-primary: #34495e;
+    --global-bg-color-primary: #121212;
     --global-bg-color-secondary: #2d3436;
     /*default box shadow color*/
-    --global-box-shadow-color: rgb(45, 52, 54,0.5);
+    --global-box-shadow-color: rgb(45, 52, 54, 0.5);
     /*default colors*/
     --global-color-primary: #34495e;
     --global-color-secondary: #2c3e50;
     --global-color-tertiary: #187EF7;
     /*Jumbotron background*/
     --global-jumbo-bg-color: #2d3436;
+
 
 }
 
@@ -58,19 +62,21 @@ body {
     min-height: 100%;
     min-width: 100%;
 }
+
 #page-container {
     min-height: 100vh;
     position: relative;
     background: var(--global-bg-color-primary);
     color: var(--global-text-color-primary);
 }
+
 svg {
     color: white;
 }
+
 .home {
     margin-bottom: 5vw;
 }
-
 
 
 .link {
@@ -82,47 +88,73 @@ svg {
     transition: background-size .5s;
     color: var(--global-text-color-primary);
 }
+
 .link:hover, .link:focus {
     background-size: 100% 2px;
 }
+
 .navbar {
     background: var(--global-bg-color-secondary);
     box-shadow: 0 0.2vw 1vw var(--global-box-shadow-color);
 }
+
 .navbar a {
     /*Override the bootstrap color*/
     /*color: var(--global-text-color-secondary)!important;*/
-    color: white!important;
+    color: white !important;
 
 }
 
 a.nav-link {
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
+
 .nav-item {
     margin-right: 0.5vw;
 }
 .custom-toggler.navbar-toggler {
     border-color: var(--global-text-color-secondary);
 }
+
 /* Setting the stroke to green using rgb values (0, 128, 0) */
 
 .custom-toggler .navbar-toggler-icon {
     background-image: url(
     "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
+
 .jumbotron {
-    background: var(--global-jumbo-bg-color)!important;
+    background: var(--global-jumbo-bg-color) !important;
     box-shadow: 0 0.2vw 1vw var(--global-box-shadow-color);
     color: var(--global-text-color-primary);
 
 }
+
 .jumbo-link {
+
     margin-left: 1rem;
     /*Override bootstrap color of the button*/
-    background: var(--global-bg-color-secondary)!important;
-    color: white!important;
+    background: var(--global-bg-color-secondary) !important;
+    color: white !important;
 }
+
+.post-link-jumbo-container {
+    padding: 5%;
+
+}
+
+.post-link-jumbo {
+    width: 33%;
+    border-bottom: white 1px solid;
+    margin-bottom: 4px;
+    padding-bottom: 1vh;
+    text-decoration: none;
+}
+
+.post-link-jumbo a:hover {
+    text-decoration: none;
+}
+
 .page-footer {
     background: var(--global-bg-color-secondary);
     box-shadow: 0 0.2vw 1vw var(--global-box-shadow-color);
@@ -132,24 +164,27 @@ a.nav-link {
     width: 100%;
     height: 10rem;
     /*color: var(--global-text-color-secondary)!important;*/
-    color: white!important;
+    color: white !important;
 }
-.page-footer a{
+
+.page-footer a {
     /*color: var(--global-text-color-secondary)!important;*/
-    color: white!important;
+    color: white !important;
 }
+
 .footer-icon {
     margin: 1rem 1rem;
 }
+
 /*TODO fix this so same class for all the buttons and different classes for the size of the button*/
 .inline-style-options input {
     width: 20%;
     margin-bottom: 1vh;
-    padding:1px;
+    padding: 1px;
     background: var(--global-bg-color-secondary);
     box-shadow: 0 4px 4px var(--global-box-shadow-color);
     border: none;
-    color: var(--global-text-color-secondary);
+    color: white;
 }
 
 .block-style-options input {
@@ -158,7 +193,7 @@ a.nav-link {
     background: var(--global-bg-color-secondary);
     box-shadow: 0 4px 4px var(--global-box-shadow-color);
     border: none;
-    color: var(--global-text-color-secondary);
+    color: white;
 }
 
 .inline-style-options input:hover {
@@ -173,14 +208,17 @@ a.nav-link {
     background-color: var(--global-color-tertiary);
     border-color: transparent;
 }
+
 .inline-style-options input[type="button"].active {
     background-color: var(--global-color-tertiary);
     border-color: transparent;
 }
+
 .spacing-block {
     height: 4vw;
     width: 100%;
 }
+
 .submit-post input {
     background: var(--global-bg-color-primary);
     color: currentColor;
@@ -188,107 +226,73 @@ a.nav-link {
     padding: 1px;
     border: none;
 }
+
 #title-input {
     font-size: 3rem;
     width: 100%;
     overflow-wrap: break-word;
     white-space: initial;
 }
+
 #description-input {
     width: 100%;
 }
+
 .btn {
     margin-top: 2.5vw;
     margin-bottom: 5vw;
 
 }
+
 .submit-post input::placeholder {
     color: silver;
 }
+
 .post-link {
     padding-bottom: 1vh;
     border-bottom: 1px silver solid;
-}
-.post-link-jumbo{
-    padding-bottom: 1vh;
-    text-decoration: none;
-}
-.post-link-jumbo a:hover{
-    text-decoration: none;
 }
 
 
 .post-link-title {
     width: fit-content;
 }
-.post-link a:hover{
+
+.post-link a:hover {
     text-decoration: none;
 }
+
 .spinner-border {
-    width: 4rem!important;
-    height: 4rem!important;
-}
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 4rem !important;
+    height: 4rem !important;
 }
 
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
+.theme-toggle-switch {
+    width: 3rem;
+    height: 3rem;
+    /*margin-left: 1rem;*/
+    margin-bottom: 0;
+    /*border-radius: 50%;*/
+    /*border: white 1px solid;*/
+}
+
+
+.theme-toggle-switch svg {
+    height: 2rem !important;
+    width: 2rem !important;
+    transform: translateY(0.5rem) translateX(0.5rem);
+}
+
+.theme-toggle {
+    visibility: hidden;
     height: 0;
+    width: 0;
 }
 
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+.theme-toggle:checked {
+    background: white;
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
 
 /*Animation Classes*/
 .slide {
@@ -297,11 +301,13 @@ input:checked + .slider:before {
     transition-timing-function: ease-in-out;
 
 }
+
 .flip-in {
     animation-name: flip;
     animation-duration: 0.75s;
     animation-timing-function: ease-in-out;
 }
+
 .jello {
     animation: jello 1s;
     transform-origin: center
@@ -319,6 +325,7 @@ input:checked + .slider:before {
     }
 
 }
+
 @keyframes flip {
     from {
         transform: rotateX(180deg);
@@ -329,6 +336,7 @@ input:checked + .slider:before {
         opacity: 100;
     }
 }
+
 @keyframes jello {
     11.1% {
         transform: none

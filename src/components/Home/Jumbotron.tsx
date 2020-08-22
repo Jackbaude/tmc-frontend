@@ -12,8 +12,6 @@ const Jumbotron = () => {
             <p className="lead">Welcome to the Technical Minecraft Wiki.</p>
             <hr className="my-4"/>
             {/*<p> It uses utility classes for typography and spacing to space content out within the larger container.</p>*/}
-
-            <p className="lead">Latest Posts</p>
             <LatestPosts/>
             <p className="lead">
                 <a className="btn btn-lg jumbo-link jello" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"

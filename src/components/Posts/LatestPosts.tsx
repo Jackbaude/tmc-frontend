@@ -1,5 +1,6 @@
 //TODO add pagnation
 import React, {memo, useEffect, useMemo, useState} from "react"
+
 const LatestPosts = () => {
     const [metadata, setMetadata] = useState([])
     // default state of the fetch getPost is loading
@@ -43,11 +44,15 @@ const LatestPosts = () => {
     //if we caught a error send a failed message
     else if (fetchState === "failed") {
         return (
-            <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Is the API down? Check with Jakku on the Discord.</div>
+            <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Is the API down?
+                Check with Jakku on the Discord.</div>
         )
     } else return (
         <div>
-            {postLink}
+            <h1 className="">Latest Posts</h1>
+            <div className={"post-link-jumbo-container"}>
+                {postLink}
+            </div>
         </div>
     );
 }

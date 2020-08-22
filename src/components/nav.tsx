@@ -33,15 +33,15 @@ const Nav = () => {
                             <a className="nav-link" href="https://discord.gg/FcTFg2E" target="_blank"
                                rel="noreferrer noopener"><FontAwesomeIcon icon={faDiscord} size={"lg"}/></a>
                         </li>
-                        <ThemeToggle/>
+
                     </ul>
 
                     <form className="form-inline my-2 my-lg-n1">
                         <input className="form-control mr-sm-2 disabled" type="search" placeholder="Search"
                                aria-label="Search"/>
                         <button className="btn btn-outline-light my-2 my-sm-0 " type="submit">Search</button>
-
                     </form>
+                    <ThemeToggle/>
                 </div>
             </nav>
         </div>
