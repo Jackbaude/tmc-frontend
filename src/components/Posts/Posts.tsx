@@ -19,7 +19,7 @@ const Posts = () => {
             })
     }, []);
     const getPost = async () => {
-        const response = await fetch('/__allposts__?')
+        const response = await fetch('/api/__allposts__?')
         const data = await response.json()
         await setMetadata(data);
     };

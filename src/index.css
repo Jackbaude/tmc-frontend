@@ -153,6 +153,9 @@ a.nav-link {
     padding-bottom: 1vh;
     text-decoration: none;
 }
+.git-commits svg {
+    color: var(--global-text-color-primary);
+}
 .landing-title::after {
     content: "Now with Night Mode!";
     position: absolute;

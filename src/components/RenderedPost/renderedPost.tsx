@@ -26,7 +26,7 @@ const RenderedPost = () => {
     const [lastEdited, setLastEdited] = useState('')
     const [resGood, setResGood] = useState(false)
     const getPost = async () => {
-        const response = await fetch('/__getpost__?id=' + id)
+        const response = await fetch('/api/__getpost__?id=' + id)
         const data = await response.json()
         console.log(data)
         setTitle(data.title)

@@ -4,8 +4,6 @@ TODO add discord auth and give person a role when they make a post
 import React, {useState} from "react"
 import {Editor, EditorState, RichUtils, getDefaultKeyBinding, convertToRaw} from 'draft-js';
 import 'draft-js/dist/Draft.css'
-import createVideoPlugin from 'draft-js-video-plugin';
-
 
 const NewPost = () => {
     let [editorState, setEditorState] = useState(() =>
@@ -18,7 +16,6 @@ const NewPost = () => {
     const [submitted, setSubmitted] = useState(false)
     const [madeChanges, setMadeChanges] = useState(false)
     const [success, setSuccess] = useState(false)
-    const videoPlugin = createVideoPlugin();
     let saveContent = (content) => {
         window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
         console.log(convertToRaw(content))
@@ -164,7 +161,7 @@ const NewPost = () => {
             tags: tags,
             body: window.localStorage.getItem('content')
         })
-        fetch("/__newpost__", {
+        fetch("/api/__newpost__", {
             // Adding method type
             method: "POST",
             // Adding body or contents to send

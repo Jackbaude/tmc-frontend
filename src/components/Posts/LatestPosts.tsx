@@ -17,7 +17,7 @@ const LatestPosts = () => {
             })
     }, []);
     const getPost = async () => {
-        const response = await fetch('/__latestposts__?')
+        const response = await fetch('/api/__latestposts__?')
         await setMetadata(await response.json());
     };
     const postLink = useMemo(() => metadata.map(

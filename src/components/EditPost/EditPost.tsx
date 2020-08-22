@@ -32,7 +32,7 @@ const NewPost = () => {
         )
     }
     const getPost = async () => {
-        const response = await fetch('/__getpost__?id=' + id)
+        const response = await fetch('/api/__getpost__?id=' + id)
         const data = await response.json()
         console.log(data)
         await setTitle(data.title)
@@ -192,7 +192,7 @@ const NewPost = () => {
             body: window.localStorage.getItem('content')
         })
 
-        fetch("/__editpost__?id=" + id, {
+        fetch("/api/__editpost__?id=" + id, {
             // Adding method type
             method: "POST",
             // Adding body or contents to send
@@ -210,6 +210,9 @@ const NewPost = () => {
             .then(() => {
                 setSubmitted(true)
                 setSuccess(true)
+            })
+            .catch((e) => {
+                setFailed(true)
             })
     }
     const failedPost = () => {
@@ -309,7 +312,7 @@ const NewPost = () => {
                 </form>
             </div>
         );
-    } else {
+    } if (success) {
         return (
             <div className="alert alert-success" role="alert">
                 <h4 className="alert-heading">Success!</h4>
@@ -318,6 +321,15 @@ const NewPost = () => {
                     whole. People like you
                     make this community fun and expanding. Keep up the great work, and we hope to see you again!
                 </p>
+            </div>
+        )
+    }
+    if (failed) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                <h4 className="alert-heading">Failed to post!</h4>
+                <hr/>
+                <p>Woah something went wrong :(</p>
             </div>
         )
     }
