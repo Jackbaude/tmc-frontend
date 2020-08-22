@@ -4,8 +4,9 @@ Color pallet: https://flatuicolors.com/palette/defo
 /*
 TODO organize this
 TODO dark mode and light mode toggle
-
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 :root {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -38,7 +39,7 @@ html {
 html[data-theme='dark'] {
     /*default font size*/
     --global-font-size: 1rem;
-    font-weight: lighter !important;
+    font-weight: bold!important;
     /*default text colors*/
     --global-text-color-primary: #ffffff;
     --global-text-color-secondary: #000000;
@@ -73,7 +74,10 @@ body {
 svg {
     color: white;
 }
+hr {
+    background: var(--global-text-color-primary)!important;
 
+}
 .home {
     margin-bottom: 5vw;
 }
@@ -131,8 +135,8 @@ a.nav-link {
 }
 
 .jumbo-link {
-
     margin-left: 1rem;
+    border: var(--global-text-color-primary) 1px solid!important;
     /*Override bootstrap color of the button*/
     background: var(--global-bg-color-secondary) !important;
     color: white !important;
@@ -142,7 +146,6 @@ a.nav-link {
     padding: 5%;
 
 }
-
 .post-link-jumbo {
     width: 33%;
     border-bottom: white 1px solid;
@@ -150,7 +153,17 @@ a.nav-link {
     padding-bottom: 1vh;
     text-decoration: none;
 }
+.landing-title::after {
+    content: "Now with Night Mode!";
+    position: absolute;
+    font-size: 1rem;
+    transform: rotate(30deg) translateX(-50%) translateY(2rem);
+    color: yellow;
+    animation-name: minecraft-text;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 
+}
 .post-link-jumbo a:hover {
     text-decoration: none;
 }
@@ -312,7 +325,11 @@ a.nav-link {
     animation: jello 1s;
     transform-origin: center
 }
-
+.box-shadow-animation {
+    animation-name: box-shadow-animation;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in-out;
+}
 /*Animation keyframes*/
 @keyframes slide-in {
     from {
@@ -366,4 +383,26 @@ a.nav-link {
         transform: none
     }
 }
+@keyframes box-shadow-animation {
+    0% {
+        box-shadow: 0 0 0 white;
+    }
+    50% {
+        box-shadow: 5px 5px 0px white;
+    }
+    100% {
+        box-shadow: 0 0 0 white;
+    }
+}
+@keyframes minecraft-text {
+    0% {
+        transform: scale(0.7)rotate(30deg) translateX(-50%) translateY(2rem);
+    }
+    50% {
+        transform: scale(0.9) rotate(30deg) translateX(-50%) translateY(2rem);
+    }
+    100% {
+        transform: scale(0.7)rotate(30deg) translateX(-50%) translateY(2rem);
+    }
 
+}
