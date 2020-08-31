@@ -1,15 +1,33 @@
-import React, {useEffect, useState} from "react"
-import {convertFromRaw, convertToRaw, Editor, EditorState, getDefaultKeyBinding, RichUtils} from 'draft-js';
-import 'draft-js/dist/Draft.css'
+import React, {useState, useMemo, useCallback, useEffect} from 'react'
+import imageExtensions from 'image-extensions'
+import isUrl from 'is-url'
+import isHotkey from 'is-hotkey'
+import {Node, Transforms, Editor, Range, createEditor} from 'slate'
+import {
+    Slate,
+    Editable,
+    useEditor,
+    useSelected,
+    useFocused,
+    withReact,
+    useSlate,
+} from 'slate-react'
+import {withHistory} from 'slate-history'
+import {css} from 'emotion'
+
+import {Button, Icon, Toolbar} from '../RichUtils'
+import {convertFromRaw, EditorState} from "draft-js";
 import {useParams} from "react-router";
 
-const NewPost = () => {
-    const {id} = useParams();
-    const [fetchState, setFetchState] = useState("loading")
-    const [failed, setFailed] = useState(false);
-    const [submitted, setSubmitted] = useState(false)
-    const [madeChanges, setMadeChanges] = useState(false)
-    const [success, setSuccess] = useState(false)
+
+const HOTKEYS = {
+    'mod+b': 'bold',
+    'mod+i': 'italic',
+    'mod+u': 'underline',
+    'mod+`': 'code',
+}
+const LIST_TYPES = ['numbered-list', 'bulleted-list']
+const EditPost = () => {
     useEffect(() => {
         getPost()
             //If the fetch got the data make the state a success
@@ -21,16 +39,25 @@ const NewPost = () => {
                 setFetchState("failed")
             })
     }, []);
-    let [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    );
-    const [resGood, setResGood] = useState(false)
-    const postGood = () => {
-        return (
-            <div className="alert alert-danger" role="alert">Sorry Looks like this post doesnt exist. Check out some
-                other <a href="/posts" className="alert-link">Posts</a></div>
-        )
-    }
+    // Id of the post
+    const {id} = useParams();
+    //States
+    const [fetchState, setFetchState] = useState("loading")
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [tags, setTags] = useState('')
+    const [failed, setFailed] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
+    const [madeChanges, setMadeChanges] = useState(false)
+    const [success, setSuccess] = useState(false)
+    //Editor
+    const [value, setValue] = useState<Node[]>(initialValue)
+    const renderElement = useCallback(props => <Element {...props} />, [])
+    const renderLeaf = useCallback(props => <Leaf {...props} />, [])
+    const editor = useMemo(
+        () => withImages(withHistory(withReact(createEditor()))),
+        []
+    )
     const getPost = async () => {
         const response = await fetch('/api/__getpost__?id=' + id)
         const data = await response.json()
@@ -38,146 +65,7 @@ const NewPost = () => {
         await setTitle(data.title)
         await setDescription(data.description)
         await setTags(data.tags)
-        await setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(data.body))))
-        if (response.ok) {
-            setResGood(true)
-        }
-    }
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [tags, setTags] = useState('')
-
-    let saveContent = (content) => {
-        window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
-        console.log(convertToRaw(content))
-    }
-    let onChange = (editorState) => {
-        //if changes were made to the editor state set the made chanegs to true
-        setMadeChanges(true)
-        const contentState = editorState.getCurrentContent();
-        saveContent(contentState);
-        console.log('content state', convertToRaw(contentState));
-        setEditorState(editorState);
-    }
-    const handleKeyCommand = (command) => {
-        // inline formatting key commands handles bold, italic, code, underline
-        editorState = RichUtils.handleKeyCommand(editorState, command);
-        if (editorState) {
-            setEditorState(editorState);
-            return 'handled';
-        }
-        return 'not-handled';
-    }
-
-
-    const toggleInlineStyle = (event) => {
-        event.preventDefault();
-        let style = event.currentTarget.getAttribute('data-style');
-        setEditorState(RichUtils.toggleInlineStyle(editorState, style));
-    }
-
-    const toggleBlockType = (event) => {
-        event.preventDefault();
-        let block = event.currentTarget.getAttribute('data-block');
-        setEditorState(RichUtils.toggleBlockType(editorState, block));
-    }
-    const renderBlockButton = (value, block) => {
-        const currentBlockType = RichUtils.getCurrentBlockType(editorState);
-        let className = '';
-        if (currentBlockType === block) {
-            className = 'active';
-        }
-        return (
-            <input
-                type="button"
-                key={block}
-                value={value}
-                data-block={block}
-                onClick={toggleBlockType}
-                className={className}
-            />
-        );
-    }
-
-    const renderInlineStyleButton = (value, style) => {
-        const currentInlineStyle = editorState.getCurrentInlineStyle();
-        let className = '';
-        if (currentInlineStyle.has(style)) {
-            className = 'active';
-        }
-        return (
-            <input
-                type="button"
-                key={style}
-                value={value}
-                className={className}
-                data-style={style}
-                onClick={toggleInlineStyle}
-            />
-
-        );
-    }
-    const inlineStyleButtons = [
-        {
-            value: 'Bold',
-            style: 'BOLD'
-        },
-
-        {
-            value: 'Italic',
-            style: 'ITALIC'
-        },
-
-        {
-            value: 'Underline',
-            style: 'UNDERLINE'
-        },
-
-        {
-            value: 'Strikethrough',
-            style: 'STRIKETHROUGH'
-        },
-
-        {
-            value: 'Code',
-            style: 'CODE'
-        },
-    ];
-
-    const blockTypeButtons = [
-        {
-            value: 'H1',
-            block: 'header-one'
-        },
-
-        {
-            value: 'H2',
-            block: 'header-two'
-        },
-
-        {
-            value: 'H3',
-            block: 'header-three'
-        },
-
-        {
-            value: 'Blockquote',
-            block: 'blockquote'
-        },
-
-        {
-            value: 'Unordered List',
-            block: 'unordered-list-item'
-        },
-
-        {
-            value: 'Ordered List',
-            block: 'ordered-list-item'
-        }
-    ];
-
-    const keyBindingFunction = (event) => {
-        return getDefaultKeyBinding(event);
+        await setValue(JSON.parse(data.body))
     }
     const submitPost = () => {
         if ((title === "" || description === "" || tags === "" || window.localStorage.getItem('content') === undefined)) {
@@ -254,20 +142,31 @@ const NewPost = () => {
     }
     if (!success) {
         return (
-            <div>
-                {failedPost()}
-                <div className="inline-style-options">
-                    {inlineStyleButtons.map((button) => {
-                        return renderInlineStyleButton(button.value, button.style);
-                    })}
-                </div>
-                <div className="block-style-options">
-                    {blockTypeButtons.map((button) => {
-                        return renderBlockButton(button.value, button.block);
-
-                    })}
-                </div>
+            <Slate
+                editor={editor}
+                value={value}
+                onChange={value => {
+                    setValue(value)
+                    // Save the value to Local Storage.
+                    const content = JSON.stringify(value)
+                    localStorage.setItem('content', content)
+                }}
+            >
                 <form className={"submit-post"}>
+                    {failedPost()}
+                    <Toolbar>
+                        <MarkButton format="bold" icon="format_bold"/>
+                        <MarkButton format="italic" icon="format_italic"/>
+                        <MarkButton format="underline" icon="format_underlined"/>
+                        <MarkButton format="code" icon="code"/>
+                        <BlockButton format="heading-one" icon="looks_one"/>
+                        <BlockButton format="heading-two" icon="looks_two"/>
+                        <BlockButton format="block-quote" icon="format_quote"/>
+                        <BlockButton format="numbered-list" icon="format_list_numbered"/>
+                        <BlockButton format="bulleted-list" icon="format_list_bulleted"/>
+                        <InsertImageButton/>
+                        <LinkButton/>
+                    </Toolbar>
                     <input
                         type={"text"}
                         id={"title"}
@@ -299,20 +198,29 @@ const NewPost = () => {
                            name={"tags"}
                            defaultValue={tags}
                            required/>
-                    <Editor
-                        editorState={editorState}
-                        handleKeyCommand={handleKeyCommand}
-                        keyBindingFn={keyBindingFunction}
-                        onChange={onChange}
-                        placeholder={"Start writing here!"}
-
+                    <Editable
+                        renderElement={renderElement}
+                        renderLeaf={renderLeaf}
+                        placeholder="Enter some rich text…"
+                        spellCheck
+                        autoFocus
+                        onKeyDown={event => {
+                            for (const hotkey in HOTKEYS) {
+                                if (isHotkey(hotkey, event as any)) {
+                                    event.preventDefault()
+                                    const mark = HOTKEYS[hotkey]
+                                    toggleMark(editor, mark)
+                                }
+                            }
+                        }}
                     />
                     <div className={"spacing-block"}/>
                     {submitButton()}
+
                 </form>
-            </div>
-        );
-    } if (success) {
+            </Slate>
+        )
+    } else {
         return (
             <div className="alert alert-success" role="alert">
                 <h4 className="alert-heading">Success!</h4>
@@ -324,15 +232,295 @@ const NewPost = () => {
             </div>
         )
     }
-    if (failed) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                <h4 className="alert-heading">Failed to post!</h4>
-                <hr/>
-                <p>Woah something went wrong :(</p>
-            </div>
-        )
+}
+
+const toggleBlock = (editor, format) => {
+    const isActive = isBlockActive(editor, format)
+    const isList = LIST_TYPES.includes(format)
+
+    Transforms.unwrapNodes(editor, {
+        match: n => LIST_TYPES.includes(n.type as string),
+        split: true,
+    })
+
+    Transforms.setNodes(editor, {
+        type: isActive ? 'paragraph' : isList ? 'list-item' : format,
+    })
+
+    if (!isActive && isList) {
+        const block = {type: format, children: []}
+        Transforms.wrapNodes(editor, block)
     }
 }
-export default NewPost
 
+const toggleMark = (editor, format) => {
+    const isActive = isMarkActive(editor, format)
+
+    if (isActive) {
+        Editor.removeMark(editor, format)
+    } else {
+        Editor.addMark(editor, format, true)
+    }
+}
+
+const isBlockActive = (editor, format) => {
+    const [match] = Editor.nodes(editor, {
+        match: n => n.type === format,
+    })
+
+    return !!match
+}
+
+const isMarkActive = (editor, format) => {
+    const marks = Editor.marks(editor)
+    return marks ? marks[format] === true : false
+}
+const withLinks = editor => {
+    const {insertData, insertText, isInline} = editor
+
+    editor.isInline = element => {
+        return element.type === 'link' ? true : isInline(element)
+    }
+
+    editor.insertText = text => {
+        if (text && isUrl(text)) {
+            wrapLink(editor, text)
+        } else {
+            insertText(text)
+        }
+    }
+
+    editor.insertData = data => {
+        const text = data.getData('text/plain')
+
+        if (text && isUrl(text)) {
+            wrapLink(editor, text)
+        } else {
+            insertData(data)
+        }
+    }
+
+    return editor
+}
+
+const insertLink = (editor, url) => {
+    if (editor.selection) {
+        wrapLink(editor, url)
+    }
+}
+
+const isLinkActive = editor => {
+    const [link] = Editor.nodes(editor, {match: n => n.type === 'link'})
+    return !!link
+}
+
+const unwrapLink = editor => {
+    Transforms.unwrapNodes(editor, {match: n => n.type === 'link'})
+}
+
+const wrapLink = (editor, url) => {
+    if (isLinkActive(editor)) {
+        unwrapLink(editor)
+    }
+
+    const {selection} = editor
+    const isCollapsed = selection && Range.isCollapsed(selection)
+    const link = {
+        type: 'link',
+        url,
+        children: isCollapsed ? [{text: url}] : [],
+    }
+
+    if (isCollapsed) {
+        Transforms.insertNodes(editor, link)
+    } else {
+        Transforms.wrapNodes(editor, link, {split: true})
+        Transforms.collapse(editor, {edge: 'end'})
+    }
+}
+const withImages = editor => {
+    const {insertData, isVoid} = editor
+
+    editor.isVoid = element => {
+        return element.type === 'image' ? true : isVoid(element)
+    }
+
+    editor.insertData = data => {
+        const text = data.getData('text/plain')
+        const {files} = data
+
+        if (files && files.length > 0) {
+            for (const file of files) {
+                const reader = new FileReader()
+                const [mime] = file.type.split('/')
+
+                if (mime === 'image') {
+                    reader.addEventListener('load', () => {
+                        const url = reader.result
+                        insertImage(editor, url)
+                    })
+
+                    reader.readAsDataURL(file)
+                }
+            }
+        } else if (isImageUrl(text)) {
+            insertImage(editor, text)
+        } else {
+            insertData(data)
+        }
+    }
+
+    return editor
+}
+
+const insertImage = (editor, url) => {
+    const text = {text: ''}
+    const image = {type: 'image', url, children: [text]}
+    Transforms.insertNodes(editor, image)
+}
+
+const Element = props => {
+    const {attributes, children, element} = props
+
+    switch (element.type) {
+        case 'block-quote':
+            return <blockquote {...attributes}>{children}</blockquote>
+        case 'bulleted-list':
+            return <ul {...attributes}>{children}</ul>
+        case 'heading-one':
+            return <h1 {...attributes}>{children}</h1>
+        case 'heading-two':
+            return <h2 {...attributes}>{children}</h2>
+        case 'list-item':
+            return <li {...attributes}>{children}</li>
+        case 'numbered-list':
+            return <ol {...attributes}>{children}</ol>
+        case 'image':
+            return <ImageElement {...props} />
+        case 'link':
+            return (
+                <a {...attributes} href={element.url}>
+                    {children}
+                </a>
+            )
+        default:
+            return <p {...attributes}>{children}</p>
+    }
+}
+const Leaf = ({attributes, children, leaf}) => {
+    if (leaf.bold) {
+        children = <strong>{children}</strong>
+    }
+
+    if (leaf.code) {
+        children = <code>{children}</code>
+    }
+
+    if (leaf.italic) {
+        children = <em>{children}</em>
+    }
+
+    if (leaf.underline) {
+        children = <u>{children}</u>
+    }
+
+    return <span {...attributes}>{children}</span>
+}
+const BlockButton = ({format, icon}) => {
+    const editor = useSlate()
+    return (
+        <Button
+            active={isBlockActive(editor, format)}
+            onMouseDown={event => {
+                event.preventDefault()
+                toggleBlock(editor, format)
+            }}
+        >
+            <Icon>{icon}</Icon>
+        </Button>
+    )
+}
+
+const MarkButton = ({format, icon}) => {
+    const editor = useSlate()
+    return (
+        <Button
+            active={isMarkActive(editor, format)}
+            onMouseDown={event => {
+                event.preventDefault()
+                toggleMark(editor, format)
+            }}
+        >
+            <Icon>{icon}</Icon>
+        </Button>
+    )
+}
+const LinkButton = () => {
+    const editor = useSlate()
+    return (
+        <Button
+            active={isLinkActive(editor)}
+            onMouseDown={event => {
+                event.preventDefault()
+                const url = window.prompt('Enter the URL of the link:')
+                if (!url) return
+                insertLink(editor, url)
+            }}
+        >
+            <Icon>link</Icon>
+        </Button>
+    )
+}
+const ImageElement = ({attributes, children, element}) => {
+    const selected = useSelected()
+    const focused = useFocused()
+    return (
+        <div {...attributes}>
+            <div contentEditable={false}>
+                <img
+                    src={element.url}
+                    className={css`
+            display: block;
+            max-width: 100%;
+            max-height: 20em;
+            box-shadow: ${selected && focused ? '0 0 0 3px #B4D5FF' : 'none'};
+          `}
+                />
+            </div>
+            {children}
+        </div>
+    )
+}
+
+const InsertImageButton = () => {
+    const editor = useEditor()
+    return (
+        <Button
+            onMouseDown={event => {
+                event.preventDefault()
+                const url = window.prompt('Enter the URL of the image:')
+                if (!url) return
+                insertImage(editor, url)
+            }}
+        >
+            <Icon>image</Icon>
+        </Button>
+    )
+}
+
+const isImageUrl = url => {
+    if (!url) return false
+    if (!isUrl(url)) return false
+    const ext = new URL(url).pathname.split('.').pop()
+    return imageExtensions.includes(ext)
+}
+
+const initialValue = [
+    {
+        children: [
+            { text: '' },
+        ],
+    },
+]
+
+export default EditPost

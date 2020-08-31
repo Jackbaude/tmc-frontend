@@ -5,7 +5,7 @@ import 'draft-js/dist/Draft.css'
 import {useParams} from "react-router";
 
 
-const RenderedPost = () => {
+const OldRenderedPost = () => {
     const {id} = useParams();
     const [fetchState, setFetchState] = useState("loading")
     useEffect(() => {
@@ -66,4 +66,4 @@ const RenderedPost = () => {
         </div>
     );
 }
-export default RenderedPost
+export default OldRenderedPost
