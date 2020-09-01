@@ -76,7 +76,9 @@ svg {
 }
 hr {
     background: var(--global-text-color-primary)!important;
-
+}
+code {
+    background: var(--global-box-shadow-color);
 }
 .home {
     margin-bottom: 5vw;
@@ -152,6 +154,10 @@ a.nav-link {
     margin-bottom: 4px;
     padding-bottom: 1vh;
     text-decoration: none;
+}
+.youtube-video {
+    height: 400px!important;
+    width: 100%;
 }
 .git-commits svg {
     color: var(--global-text-color-primary);

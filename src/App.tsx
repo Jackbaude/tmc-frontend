@@ -8,6 +8,7 @@ import NewPost from "./components/NewPost/NewPost";
 import EditPost from "./components/EditPost/EditPost";
 import Layout from "./components/layout";
 import TestNewPost from "./components/NewPost/TestNewPost";
+import Archive from "./components/Archive/Archive";
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                         <Route path='/render-post/:id' component={RenderedPost}/>
                         <Route path='/new-post' component={TestNewPost}/>
                         <Route path='/edit-post/:id' component={EditPost}/>
+                        <Route path='/archive' component={Archive}/>
                     </Switch>
                 </Layout>
             </div>

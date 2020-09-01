@@ -17,13 +17,17 @@ const Jumbotron = () => {
             <p className="lead">
                 <a className="btn btn-lg jumbo-link" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"
                    rel="noreferrer noopener" role="button">Contribute <FontAwesomeIcon icon={faGithub} size={"lg"}/></a>
-                <a className="btn btn-lg jumbo-link" href="https://github.com/Jackbaude/tmc-frontend/issues/new" target="_blank"
-                   rel="noreferrer noopener" role="button">Issues <FontAwesomeIcon icon={faExclamationCircle} size={"lg"}/></a>
+                <a className="btn btn-lg jumbo-link" href="https://github.com/Jackbaude/tmc-frontend/issues/new"
+                   target="_blank"
+                   rel="noreferrer noopener" role="button">Issues <FontAwesomeIcon icon={faExclamationCircle}
+                                                                                   size={"lg"}/></a>
                 <a className="btn btn-lg jumbo-link" href="https://discord.gg/FcTFg2E" target="_blank"
                    rel="noreferrer noopener" role="button">Connect <FontAwesomeIcon icon={faDiscord} size={"lg"}/></a>
             </p>
-
-            <Git/>
+            <iframe className={"youtube-video"} src="https://www.youtube.com/embed/r8qXphl-lmU" frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen/>
+            {/*<Git/>*/}
         </div>
     );
 }

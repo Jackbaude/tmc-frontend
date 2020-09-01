@@ -1,0 +1,11 @@
+//TODO add pagnation
+import React, {memo} from "react"
+
+const Archive = () => {
+    return (
+        <div>
+            <h1>Archive!</h1>
+        </div>
+    );
+}
+export default memo(Archive)
