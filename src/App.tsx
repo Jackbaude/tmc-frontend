@@ -9,6 +9,7 @@ import EditPost from "./components/EditPost/EditPost";
 import Layout from "./components/layout";
 import NewPost from "./components/NewPost/NewPost";
 import Archive from "./components/Archive/Archive";
+import About from "./components/About/About";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                 <Layout>
                     <Switch>
                         <Route exact path='/' component={Home}/>
+                        <Route exact path='/about' component={About}/>
                         <Route path='/posts' component={Posts}/>
                         <Route path='/render-post/:id' component={RenderedPost}/>
                         <Route path='/new-post' component={NewPost}/>

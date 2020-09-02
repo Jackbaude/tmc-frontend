@@ -37,7 +37,7 @@ const NewPost = () => {
     const renderElement = useCallback(props => <Element {...props} />, [])
     const renderLeaf = useCallback(props => <Leaf {...props} />, [])
     const editor = useMemo(
-        () => withImages(withHistory(withReact(createEditor()))),
+        () => withImages(withLinks(withHistory(withReact(createEditor())))),
         []
     )
     const submitPost = () => {

@@ -29,6 +29,9 @@ const Nav = () => {
                             <a className="nav-link link" href="/archive">Archive</a>
                         </li>
                         <li className="nav-item">
+                            <a className="nav-link link" href="/about">About</a>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"
                                rel="noreferrer noopener"><FontAwesomeIcon icon={faGithub} size={"lg"}/></a>
                         </li>
