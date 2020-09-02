@@ -26,7 +26,7 @@ const Nav = () => {
                             <a className="nav-link link" href="/new-post">New Post</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link link" href="/archive">Archive <span className="badge badge-secondary">New</span></a>
+                            <a className="nav-link link" href="/archive">Archive</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="https://github.com/Jackbaude/tmc-wiki" target="_blank"
@@ -38,12 +38,6 @@ const Nav = () => {
                         </li>
 
                     </ul>
-                    {/*TODO ADD SEARCH!*/}
-                    {/*<form className="form-inline my-2 my-lg-n1">*/}
-                    {/*    <input className="form-control mr-sm-2 disabled" type="search" placeholder="Search"*/}
-                    {/*           aria-label="Search"/>*/}
-                    {/*    <button className="btn btn-outline-light my-2 my-sm-0 " type="submit">Search</button>*/}
-                    {/*</form>*/}
                     <ThemeToggle/>
                 </div>
             </nav>

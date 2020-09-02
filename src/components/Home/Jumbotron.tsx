@@ -24,9 +24,7 @@ const Jumbotron = () => {
                 <a className="btn btn-lg jumbo-link" href="https://discord.gg/FcTFg2E" target="_blank"
                    rel="noreferrer noopener" role="button">Connect <FontAwesomeIcon icon={faDiscord} size={"lg"}/></a>
             </p>
-            <iframe className={"youtube-video"} src="https://www.youtube.com/embed/r8qXphl-lmU" frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen/>
+
             {/*<Git/>*/}
         </div>
     );

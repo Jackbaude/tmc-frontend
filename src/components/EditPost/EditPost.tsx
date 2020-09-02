@@ -116,7 +116,7 @@ const EditPost = () => {
         if (madeChanges) {
             return (
                 <button type="button" className={"btn btn-primary btn-lg"} value={"Submit"}
-                        onClick={submitPost}>Edit Post
+                        onClick={submitPost}>Submit Edits
                 </button>
             )
         } else {
@@ -142,12 +142,13 @@ const EditPost = () => {
     }
     if (!success) {
         return (
+
             <Slate
                 editor={editor}
                 value={value}
                 onChange={value => {
                     setValue(value)
-                    // Save the value to Local Storage.
+                    setMadeChanges(true)
                     const content = JSON.stringify(value)
                     localStorage.setItem('content', content)
                 }}

@@ -77,9 +77,6 @@ svg {
 hr {
     background: var(--global-text-color-primary)!important;
 }
-code {
-    background: var(--global-box-shadow-color);
-}
 .home {
     margin-bottom: 5vw;
 }
