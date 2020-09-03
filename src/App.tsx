@@ -10,6 +10,7 @@ import Layout from "./components/layout";
 import NewPost from "./components/NewPost/NewPost";
 import Archive from "./components/Archive/Archive";
 import About from "./components/About/About";
+import License from './components/License/License';
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
                         <Route path='/new-post' component={NewPost}/>
                         <Route path='/edit-post/:id' component={EditPost}/>
                         <Route path='/archive' component={Archive}/>
+                        <Route path='/license' component={License}/>
                     </Switch>
                 </Layout>
             </div>
