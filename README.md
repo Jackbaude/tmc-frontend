@@ -30,7 +30,7 @@ A short and simple permissive license with conditions only requiring preservatio
     source code.</p>
 ###### MIT © Jack Baude
 
-### [The Backend API]((https://github.com/LinoBigatti/tmc-wiki-backend))
+##[The Backend API]((https://github.com/LinoBigatti/tmc-wiki-backend))
 
 The project space for this is too large to fit in one reposoirty and one code base, so we split
 it into two. The Backend API is what drives the site and what handels everything. 
@@ -39,10 +39,10 @@ it into two. The Backend API is what drives the site and what handels everything
 ## Available Scripts For Devs
 
 Afer you fork and clone to your local machine you can install the packages with:
-### `npm install`
+#### `npm install`
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -50,12 +50,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -69,6 +69,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+#### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
