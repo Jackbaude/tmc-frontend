@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/book.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Archive/Archive.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Archive/Archive.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Jumbotron.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Jumbotron.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/License/License.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/License/License.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/RenderedPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RenderedPost/RenderedPost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +128,7 @@
       <workItem from="1598826407585" duration="5967000" />
       <workItem from="1598895068630" duration="16453000" />
       <workItem from="1599064142436" duration="8154000" />
-      <workItem from="1599146915514" duration="1724000" />
+      <workItem from="1599146915514" duration="2372000" />
     </task>
     <servers />
   </component>
