@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="" />
+    <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/book.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Archive/Archive.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Archive/Archive.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditPost/EditPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Jumbotron.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Jumbotron.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/License/License.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/License/License.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RenderedPost/RenderedPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RenderedPost/RenderedPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +43,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -43,17 +57,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/components/EditPost" />
-      <recent name="$PROJECT_DIR$/src/img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/Home" />
       <recent name="$PROJECT_DIR$/src/img" />
       <recent name="$PROJECT_DIR$/src/components/RenderedPost" />
       <recent name="$PROJECT_DIR$/src/components/NewPost" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/components/EditPost" />
+      <recent name="$PROJECT_DIR$/src/img" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.TestEditPost.tsx">
@@ -123,7 +138,8 @@
       <workItem from="1598714346584" duration="415000" />
       <workItem from="1598826407585" duration="5967000" />
       <workItem from="1598895068630" duration="16453000" />
-      <workItem from="1599064142436" duration="4551000" />
+      <workItem from="1599064142436" duration="8154000" />
+      <workItem from="1599146915514" duration="1724000" />
     </task>
     <servers />
   </component>
@@ -190,18 +206,18 @@
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
     <state x="51" y="188" width="1462" height="1733" key="dock-window-2/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1598899854636" />
-    <state x="3840" y="233" width="1080" height="1687" maximized="true" key="dock-window-3" timestamp="1599064452568">
+    <state x="3717" y="404" width="1065" height="1687" key="dock-window-3" timestamp="1599103162045">
       <screen x="3840" y="240" width="1080" height="1920" />
     </state>
-    <state x="3840" y="233" width="1080" height="1687" maximized="true" key="dock-window-3/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1599064452568" />
+    <state x="3717" y="404" width="1065" height="1687" key="dock-window-3/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1599103162045" />
     <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog" timestamp="1594572310168">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594572310168" />
-    <state x="2539" y="514" key="run.anything.popup" timestamp="1598901374014">
+    <state x="2539" y="514" key="run.anything.popup" timestamp="1599147562693">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
-    <state x="2539" y="514" key="run.anything.popup/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1598901374014" />
+    <state x="2539" y="514" key="run.anything.popup/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1599147562693" />
     <state x="2539" y="522" key="run.anything.popup/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596735539246" />
     <state x="2538" y="521" width="672" height="678" key="search.everywhere.popup" timestamp="1598325861455">
       <screen x="0" y="27" width="3840" height="2100" />

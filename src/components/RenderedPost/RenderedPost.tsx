@@ -1,5 +1,5 @@
 import React, {useState, useMemo, useCallback, useEffect} from 'react'
-import {Node, Editor, createEditor} from 'slate'
+import {Node, createEditor} from 'slate'
 import {
     Slate,
     Editable,

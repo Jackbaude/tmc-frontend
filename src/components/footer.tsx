@@ -1,6 +1,6 @@
 import React from "react"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDiscord, faGithub, faYoutube, faReddit} from '@fortawesome/free-brands-svg-icons'
+import {faDiscord, faGithub, faReddit} from '@fortawesome/free-brands-svg-icons'
 
 const Footer = () => (
     <div>

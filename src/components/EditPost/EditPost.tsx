@@ -16,7 +16,6 @@ import {withHistory} from 'slate-history'
 import {css} from 'emotion'
 
 import {Button, Icon, Toolbar} from '../RichUtils'
-import {convertFromRaw, EditorState} from "draft-js";
 import {useParams} from "react-router";
 
 

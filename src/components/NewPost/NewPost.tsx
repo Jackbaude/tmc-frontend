@@ -67,6 +67,7 @@ const NewPost = () => {
                 "Access-Control-Allow-Methods": "POST",
                 "Access-Control-Allow-Headers": "Content-Type, Authorization"
             }
+
         })
             // .then(r => window.location.href = r.url)
             .then(() => {

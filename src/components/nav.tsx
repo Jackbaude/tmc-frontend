@@ -1,7 +1,6 @@
-import React, {useState} from "react"
+import React from "react"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDiscord, faYoutube, faGithub} from '@fortawesome/free-brands-svg-icons'
-import {faAlignJustify, faMoon, faSun} from '@fortawesome/free-solid-svg-icons'
+import {faDiscord, faGithub} from '@fortawesome/free-brands-svg-icons'
 import ThemeToggle from "./ThemeToggle";
 
 const Nav = () => {

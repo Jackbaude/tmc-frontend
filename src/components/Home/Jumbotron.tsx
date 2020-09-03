@@ -1,10 +1,9 @@
-import React, {useEffect, useMemo, useState} from "react"
+import React from "react"
 import {faDiscord, faGithub} from '@fortawesome/free-brands-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Posts from "../Posts/Posts";
+
 import LatestPosts from "../Posts/LatestPosts";
 import {faExclamationCircle} from "@fortawesome/free-solid-svg-icons";
-import Git from "./Git";
 
 const Jumbotron = () => {
     return (
