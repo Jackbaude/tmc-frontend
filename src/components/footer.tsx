@@ -23,7 +23,7 @@ const Footer = () => (
                 </nav>
             </div>
             <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                <a className={"link"} href="www.technicalmc.xyz/"> technicalmc.xyz</a>
+                <a className={"link"} href="license"> technicalmc.xyz</a>
             </div>
         </footer>
     </div>

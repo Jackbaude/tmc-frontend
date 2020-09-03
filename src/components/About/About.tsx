@@ -21,7 +21,7 @@ const About = () => (
             yourself. Currently only myself and another heakte member are working on this project and we appreciate
             all the help we can get.
         </p>
-        <h2 id="license">License</h2>
+        <a href="license"><h2 id="license">License</h2></a>
         <hr className="dividing-line"/>
         <p>A short and simple permissive license with conditions only requiring preservation of copyright and
             license
