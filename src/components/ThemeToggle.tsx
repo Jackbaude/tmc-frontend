@@ -18,10 +18,9 @@ const ThemeToggle = () => {
                        defaultChecked={((localStorage.getItem('mode')) === "dark")}/>
                 {/*If the checkbox is checked, dark, render the moon, else render the sun if it is in light mode*/}
                 {((localStorage.getItem('mode')) === "dark")
-                    ? <FontAwesomeIcon icon={faMoon}/>
-                    : <FontAwesomeIcon icon={faSun}/>
+                    ?<FontAwesomeIcon icon={faMoon} size={"2x"}/>
+                    :<FontAwesomeIcon icon={faSun}/>
                 }
-                <span className="slider round"/>
             </label>
             <div>
 
