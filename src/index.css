@@ -150,28 +150,20 @@ a.nav-link {
 }
 
 .jumbo-link {
-    margin-left: 1rem;
-    border: var(--global-text-color-primary) 1px solid!important;
-    /*Override bootstrap color of the button*/
-    background: var(--global-bg-color-secondary) !important;
-    color: white !important;
+    margin-right: 1rem;
+    margin-top: 1rem;
 }
-
 .post-link-jumbo-container {
-    padding: 5%;
-
+    overflow: hidden;
+    box-sizing: border-box;
 }
 .post-link-jumbo {
-    width: 33%;
-    border-bottom: white 1px solid;
-    margin-bottom: 4px;
+    width: 100%;
     padding-bottom: 1vh;
     text-decoration: none;
+    /*margin-left: 1vw;*/
 }
-.youtube-video {
-    height: 400px!important;
-    width: 100%;
-}
+
 .git-commits svg {
     color: var(--global-text-color-primary);
 }
@@ -233,12 +225,6 @@ a.nav-link {
 
 #description-input {
     width: 100%;
-}
-
-.btn {
-    margin-top: 2.5vw;
-    margin-bottom: 5vw;
-
 }
 
 .submit-post input::placeholder {
