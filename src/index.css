@@ -182,7 +182,17 @@ a.nav-link {
 .post-link-jumbo a:hover {
     text-decoration: none;
 }
-
+.file-input{
+    display: none;
+}
+.file-input-button {
+    margin-bottom: 1vh;
+    margin-right: 1vw;
+}
+.table, .table svg {
+    color: var(--global-text-color-primary)!important;
+    /*background: var(--global-bg-color-secondary);*/
+}
 .page-footer {
     background: var(--global-bg-color-secondary);
     box-shadow: 0 0.2vw 1vw var(--global-box-shadow-color);
