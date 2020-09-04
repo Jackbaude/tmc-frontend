@@ -314,7 +314,24 @@ a.nav-link {
     animation-duration: 0.7s;
     animation-timing-function: ease-in-out;
 }
+
+
+.slideInDown {
+    animation-name: slideInDown;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
 /*Animation keyframes*/
+@keyframes slideInDown {
+    from {
+        transform: translate3d(0, -300%, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
 @keyframes slide-in {
     from {
         opacity: 0;
