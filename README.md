@@ -18,7 +18,7 @@ There are many ways that you can contribute to the project. The project is still
     but as it
     goes on it could get more complicated, and we are looking for people to help use build. Please consider
     making issues with features that  you would like to see, or sending in pull requests and doing it
-    yourself. Currently only myself and @LinoBigatti are working on this project, and we appreciate
+    yourself. Currently only myself and @LinoB````igatti are working on this project, and we appreciate
     all the help we can get.
 
 ### [License](https://technicalmc.xyz/license)
@@ -30,7 +30,7 @@ A short and simple permissive license with conditions only requiring preservatio
     source code.</p>
 ###### MIT © Jack Baude
 
-##[The Backend API]((https://github.com/LinoBigatti/tmc-wiki-backend))
+## [The Backend API]((https://github.com/LinoBigatti/tmc-wiki-backend))
 
 The project space for this is too large to fit in one reposoirty and one code base, so we split
 it into two. The Backend API is what drives the site and what handels everything. 
