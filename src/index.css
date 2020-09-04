@@ -28,7 +28,7 @@ html {
     /*default box shadow color*/
     --global-box-shadow-color: rgba(44, 62, 80, 0.5);
     /*default colors*/
-    --global-color-primary: #34495e;
+    --global-color-primary: #0275d8;
     --global-color-secondary: #2c3e50;
     --global-color-tertiary: #187EF7;
     /*Jumbotron background*/
@@ -44,16 +44,16 @@ html[data-theme='dark'] {
     --global-text-color-primary: #ffffff;
     --global-text-color-secondary: #000000;
     /*default background colors*/
-    --global-bg-color-primary: #121212;
-    --global-bg-color-secondary: #2d3436;
+    --global-bg-color-primary: #17223b;
+    --global-bg-color-secondary: #263859;
     /*default box shadow color*/
     --global-box-shadow-color: rgb(45, 52, 54, 0.5);
     /*default colors*/
-    --global-color-primary: #34495e;
-    --global-color-secondary: #2c3e50;
+    --global-color-primary: #ff6768;
+    --global-color-secondary: #6b778d;
     --global-color-tertiary: #187EF7;
     /*Jumbotron background*/
-    --global-jumbo-bg-color: #2d3436;
+    --global-jumbo-bg-color: #263859;
 
 
 }
