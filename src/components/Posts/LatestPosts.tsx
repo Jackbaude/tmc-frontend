@@ -22,11 +22,9 @@ const LatestPosts = () => {
     };
     const postLink = useMemo(() => metadata.map(
         ({title, id, tags, last_edited, description}) => (
-            <div className={"post-link-jumbo flip-in"}>
-                <div className={"post-link-title"}><a href={"/render-post/" + id}><h1 className={"link"}>{title}</h1>
+            <div className={"post-link-jumbo slideInDown"}>
+                <div className={"post-link-title"}><a href={"/render-post/" + id}><h4 className={"link"}>{title}</h4>
                 </a></div>
-                <div>About: {description}</div>
-                <div>Tags: {tags}</div>
                 <div>Last updated: {last_edited}</div>
             </div>
         )
@@ -48,8 +46,9 @@ const LatestPosts = () => {
                 Check with Jakku on the Discord.</div>
         )
     } else return (
-        <div>
+        <div className={"latest-posts"}>
             <h1 className="">Latest Posts</h1>
+
             <div className={"post-link-jumbo-container"}>
                 {postLink}
             </div>
