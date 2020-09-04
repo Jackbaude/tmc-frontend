@@ -211,44 +211,6 @@ a.nav-link {
     margin: 1rem 1rem;
 }
 
-/*TODO fix this so same class for all the buttons and different classes for the size of the button*/
-.inline-style-options input {
-    width: 20%;
-    margin-bottom: 1vh;
-    padding: 1px;
-    background: var(--global-bg-color-secondary);
-    box-shadow: 0 4px 4px var(--global-box-shadow-color);
-    border: none;
-    color: white;
-}
-
-.block-style-options input {
-    width: 16.66%;
-    margin-bottom: 1vh;
-    background: var(--global-bg-color-secondary);
-    box-shadow: 0 4px 4px var(--global-box-shadow-color);
-    border: none;
-    color: white;
-}
-
-.inline-style-options input:hover {
-    background: var(--global-color-secondary);
-}
-
-.block-style-options input:hover {
-    background: var(--global-color-secondary);
-}
-
-.block-style-options input[type="button"].active {
-    background-color: var(--global-color-tertiary);
-    border-color: transparent;
-}
-
-.inline-style-options input[type="button"].active {
-    background-color: var(--global-color-tertiary);
-    border-color: transparent;
-}
-
 .spacing-block {
     height: 4vw;
     width: 100%;
