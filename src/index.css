@@ -77,6 +77,22 @@ svg {
 hr {
     background: var(--global-text-color-primary)!important;
 }
+.btn{
+    background: var(--global-color-primary)!important;
+    color: white!important;
+    border: none!important;
+}
+#book-image {
+    min-height: 3vw;
+    min-width: 3vw;
+    max-height: 10vh;
+    max-width: 10vh;
+    opacity: 100%;
+    /*border: 3px solid white;*/
+    /*padding: 7px;*/
+    /*border-radius: 50%;*/
+    /*box-shadow: 5px 5px 5px var(--global-box-shadow-color);*/
+}
 .home {
     margin-bottom: 5vw;
 }
