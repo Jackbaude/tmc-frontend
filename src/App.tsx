@@ -9,9 +9,6 @@ import NewPost from "./components/NewPost/NewPost";
 import Archive from "./components/Archive/Archive";
 import About from "./components/About/About";
 import License from './components/License/License';
-import Login from "./components/Login/login";
-import Signup from "./components/Login/signup";
-
 const App = () => {
     return (
         <Router>
@@ -19,8 +16,6 @@ const App = () => {
                 <Layout>
                     <Switch>
                         <Route exact path='/' component={Home}/>
-                        {/*<Route exact path='/login' component={Login}/>*/}
-                        {/*<Route exact path='/signup' component={Signup}/>*/}
                         <Route exact path='/about' component={About}/>
                         <Route path='/posts' component={Posts}/>
                         <Route path='/render-post/:id' component={RenderedPost}/>
