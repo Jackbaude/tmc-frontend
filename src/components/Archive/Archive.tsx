@@ -1,8 +1,7 @@
 //TODO add pagnation
 import React, {memo, useEffect, useMemo, useState} from "react"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDownload, faFile, faPlusCircle, faUpload} from "@fortawesome/free-solid-svg-icons";
-import {Button} from "../RichUtils";
+import {faDownload, faFile, faUpload} from "@fortawesome/free-solid-svg-icons";
 
 const Archive = () => {
     const [metadata, setMetadata] = useState([])
@@ -43,7 +42,7 @@ const Archive = () => {
         if (file === "") {
             return <label htmlFor="getFile" className={"btn btn-lg file-input-button"}><FontAwesomeIcon
                 icon={faFile}/> Select File To Upload</label>
-        } else if (file_ext !== "litematic" && file_ext !== "schematic" && file_ext !== "nbt" && file_ext !== "png") {
+        } else if (file_ext !== "litematic" && file_ext !== "schematic" && file_ext !== "nbt") {
             return (<div>
                 <div className="alert alert-danger alert-dismissible fade show" role="alert">
                     Woah There! We only accept <strong>.litematic .schematic </strong>and <strong>.nbt </strong>files
