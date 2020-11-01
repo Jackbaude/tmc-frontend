@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tmc-wiki-auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tmc-wiki-backend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -138,7 +139,12 @@
       <workItem from="1599316781925" duration="7425000" />
       <workItem from="1599407343041" duration="5232000" />
       <workItem from="1599505995542" duration="2531000" />
-      <workItem from="1599538850355" duration="2541000" />
+      <workItem from="1599538850355" duration="3259000" />
+      <workItem from="1599606492276" duration="599000" />
+      <workItem from="1599607261143" duration="9000" />
+      <workItem from="1599942823775" duration="919000" />
+      <workItem from="1601836642906" duration="54000" />
+      <workItem from="1604263433052" duration="929000" />
     </task>
     <servers />
   </component>
@@ -146,22 +152,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2720" y="983" width="290" height="228" key="#ESLint" timestamp="1593625440045">
-      <screen x="0" y="27" width="3840" height="2133" />
-    </state>
-    <state x="2720" y="983" width="290" height="228" key="#ESLint/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1593625440045" />
     <state x="2509" y="758" width="732" height="644" key="#Inspections" timestamp="1599181118689">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
     <state x="2509" y="758" width="732" height="644" key="#Inspections/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1599181118689" />
-    <state x="1844" y="721" width="660" height="752" key="#TMC" timestamp="1594572476392">
-      <screen x="0" y="27" width="3840" height="2133" />
-    </state>
-    <state x="1844" y="721" width="660" height="752" key="#TMC/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594572476392" />
-    <state x="1637" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594573881416">
-      <screen x="0" y="27" width="3840" height="2133" />
-    </state>
-    <state x="1637" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594573881416" />
     <state x="2574" y="868" width="612" height="431" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598900792749">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
@@ -174,18 +168,14 @@
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
     <state x="2608" y="825" width="524" height="510" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1598901134421" />
-    <state x="1937" y="953" width="463" height="296" key="#com.jetbrains.plugins.reactnative.ReactNativePackagerConfigurationEditor" timestamp="1594573880802">
-      <screen x="0" y="27" width="3840" height="2133" />
-    </state>
-    <state x="1937" y="953" width="463" height="296" key="#com.jetbrains.plugins.reactnative.ReactNativePackagerConfigurationEditor/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594573880802" />
     <state x="2543" y="912" width="524" height="337" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1597788765749">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
     <state x="2543" y="912" width="524" height="337" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1597788765749" />
-    <state x="4402" y="922" width="357" height="484" key="FileChooserDialogImpl" timestamp="1599506781360">
-      <screen x="3840" y="240" width="1080" height="1920" />
+    <state x="2658" y="838" width="357" height="484" key="FileChooserDialogImpl" timestamp="1604263660893">
+      <screen x="0" y="27" width="3840" height="2100" />
     </state>
-    <state x="2658" y="838" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1599328744703" />
+    <state x="2658" y="838" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1604263660893" />
     <state x="4402" y="922" width="357" height="484" key="FileChooserDialogImpl/0.27.3840.2100/3840.240.1080.1920@3840.240.1080.1920" timestamp="1599506781360" />
     <state x="2658" y="851" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1596726239199" />
     <state x="1513" y="722" width="1022" height="737" key="SettingsEditor" timestamp="1597003002542">
@@ -218,7 +208,6 @@
       <screen x="3840" y="240" width="1080" height="1920" />
     </state>
     <state x="4373" y="1033" width="211" height="353" key="jetbrains.nodejs.interpreters-dialog/0.27.3840.2100/3840.240.1080.1920@3840.240.1080.1920" timestamp="1599426058871" />
-    <state x="1894" y="908" width="550" height="384" key="jetbrains.nodejs.interpreters-dialog/0.27.3840.2133/3840.240.1080.1920@0.27.3840.2133" timestamp="1594572310168" />
     <state x="2539" y="514" key="run.anything.popup" timestamp="1599238061711">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>

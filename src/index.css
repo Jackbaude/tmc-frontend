@@ -37,7 +37,6 @@ html {
     /*Login and signup padding*/
     --input-padding-x: .75rem;
     --input-padding-y: .75rem;
-
 }
 
 html[data-theme='dark'] {

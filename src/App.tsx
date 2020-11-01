@@ -16,6 +16,7 @@ const App = () => {
                 <Layout>
                     <Switch>
                         <Route exact path='/' component={Home}/>
+                        <Route path='/login' component={License}/>
                         <Route exact path='/about' component={About}/>
                         <Route path='/posts' component={Posts}/>
                         <Route path='/render-post/:id' component={RenderedPost}/>
