@@ -112,7 +112,7 @@ export const Icon = React.forwardRef(
                 'material-icons',
                 className,
                 css`
-          font-size: 30px;
+          font-size: 34px;
           vertical-align: text-bottom;
         `
             )}
@@ -156,9 +156,9 @@ export const Menu = React.forwardRef(
           & > * {
             display: inline-block;
           }
-
+          
           & > * + * {
-            margin-left: 15px;
+            margin-left: 20px;
           }
         `
             )}
@@ -179,13 +179,15 @@ export const Toolbar = React.forwardRef(
             {...props}
             ref={ref}
             className={cx(
-                className,
+                className, "editorbar",
                 css`
-          position: relative;
-          padding: 1px 18px 17px;
-          margin: 0 -20px;
-          border-bottom: 2px solid #eee;
+          position: sticky;
+          top: 0;
+          // padding: 1px 18px 0px;
+          // margin: 10 0;
           margin-bottom: 20px;
+          
+          
         `
             )}
         />

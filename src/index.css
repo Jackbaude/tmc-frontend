@@ -215,7 +215,13 @@ a.nav-link {
 .footer-icon {
     margin: 1rem 1rem;
 }
+.editorbar {
+    background: var(--global-bg-color-primary);
+    padding-bottom: 5px;
+    padding-top: 25px;
+    border-bottom: currentColor 2px solid;
 
+}
 .spacing-block {
     height: 4vw;
     width: 100%;

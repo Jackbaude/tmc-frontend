@@ -154,6 +154,7 @@ const NewPost = () => {
                            placeholder={"Tags"}
                            name={"tags"}
                            required/>
+
                     <Editable
                         renderElement={renderElement}
                         renderLeaf={renderLeaf}

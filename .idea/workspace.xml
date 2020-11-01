@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6dfcd362-3a28-49ad-b4bf-923a45ef0709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPost/NewPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RichUtils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RichUtils.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,19 +52,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/src/components/Home" />
-      <recent name="$PROJECT_DIR$/src/img" />
-      <recent name="$PROJECT_DIR$/src/components/RenderedPost" />
-      <recent name="$PROJECT_DIR$/src/components/NewPost" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/components/Home/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/components/EditPost" />
       <recent name="$PROJECT_DIR$/src/img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/Home" />
+      <recent name="$PROJECT_DIR$/src/img" />
+      <recent name="$PROJECT_DIR$/src/components/RenderedPost" />
+      <recent name="$PROJECT_DIR$/src/components/NewPost" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.TestEditPost.tsx">
@@ -144,7 +145,7 @@
       <workItem from="1599607261143" duration="9000" />
       <workItem from="1599942823775" duration="919000" />
       <workItem from="1601836642906" duration="54000" />
-      <workItem from="1604263433052" duration="929000" />
+      <workItem from="1604263433052" duration="8099000" />
     </task>
     <servers />
   </component>
@@ -187,10 +188,10 @@
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
     <state x="2533" y="694" width="683" height="772" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1598900833115" />
-    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599508699464">
+    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604274325744">
       <screen x="0" y="27" width="3840" height="2100" />
     </state>
-    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1599508699464" />
+    <state x="2662" y="990" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.2100/3840.240.1080.1920@0.27.3840.2100" timestamp="1604274325744" />
     <state x="4152" y="889" width="965" height="1687" key="dock-window-1" timestamp="1599330903731">
       <screen x="3840" y="240" width="1080" height="1920" />
     </state>
