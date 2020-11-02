@@ -45,7 +45,9 @@ const EditPost = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [tags, setTags] = useState('')
+    const [lastEditCount, setLastEditCount] = useState(0)
     const [failed, setFailed] = useState(false)
+    const [failedMessage, setFailedMessage] = useState(<React.Fragment><strong>Woah there something went wrong!</strong> Are you sure you filled in all the fields?</React.Fragment>)
     const [submitted, setSubmitted] = useState(false)
     const [madeChanges, setMadeChanges] = useState(false)
     const [success, setSuccess] = useState(false)
@@ -64,6 +66,7 @@ const EditPost = () => {
         await setTitle(data.title)
         await setDescription(data.description)
         await setTags(data.tags)
+        await setLastEditCount(data.editCount)
         await setValue(JSON.parse(data.body))
     }
     const submitPost = () => {
@@ -76,6 +79,7 @@ const EditPost = () => {
             title: title,
             description: description,
             tags: tags,
+            lastEditCount: lastEditCount,
             body: window.localStorage.getItem('content')
         })
 
@@ -94,9 +98,17 @@ const EditPost = () => {
             }
         })
             // .then(r => window.location.href = r.url)
-            .then(() => {
-                setSubmitted(true)
-                setSuccess(true)
+            .then(r => r.text())
+            .then(r => {
+                if (r === 'OK') {
+                    setSubmitted(true)
+                    setSuccess(true)
+                } else if (r === 'OUTDATED') {
+                    setFailed(true);
+                    setFailedMessage(<React.Fragment><strong>This page has been edited by someone else while you were editing it.</strong> Please salvage your work, cancel the edit, re-edit the page and copy your work back in.</React.Fragment>)
+                } else {
+                    setFailed(true);
+                }
             })
             .catch((e) => {
                 setFailed(true)
@@ -105,7 +117,7 @@ const EditPost = () => {
     const failedPost = () => {
         if (failed) {
             return (<div className="alert alert-danger show" role="alert">
-                <strong>Woah there something went wrong!</strong> Are you sure you filled in all the fields?
+                {failedMessage}
             </div>)
         } else {
             return
