@@ -29,6 +29,7 @@ const NewPost = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [tags, setTags] = useState('')
+    const [author, setAuthor] = useState('');
     const [failed, setFailed] = useState(false)
     const [submitted, setSubmitted] = useState(false)
     const [madeChanges, setMadeChanges] = useState(false)
@@ -52,6 +53,7 @@ const NewPost = () => {
             title: title,
             description: description,
             tags: tags,
+            author: author,
             body: window.localStorage.getItem('content')
         })
         fetch("/api/__newpost__", {
@@ -172,6 +174,14 @@ const NewPost = () => {
                         }}
 
                     />
+                    <input type={"text"}
+                           onChange={event => {
+                               setAuthor(event.target.value);
+                               setMadeChanges(true);
+                           }}
+                           placeholder={"Author"}
+                           name={"author"}
+                           required/>
                     <div className={"spacing-block"}/>
                     {submitButton()}
 
