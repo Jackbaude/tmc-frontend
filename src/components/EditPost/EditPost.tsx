@@ -46,6 +46,8 @@ const EditPost = () => {
     const [description, setDescription] = useState('')
     const [tags, setTags] = useState('')
     const [lastEditCount, setLastEditCount] = useState(0)
+    const [author, setAuthor] = useState('');
+    const [message, setMessage] = useState('');
     const [failed, setFailed] = useState(false)
     const [failedMessage, setFailedMessage] = useState(<React.Fragment><strong>Woah there something went wrong!</strong> Are you sure you filled in all the fields?</React.Fragment>)
     const [submitted, setSubmitted] = useState(false)
@@ -68,6 +70,7 @@ const EditPost = () => {
         await setTags(data.tags)
         await setLastEditCount(data.editCount)
         await setValue(JSON.parse(data.body))
+        await setMessage(`Edit ${data.title}`);
     }
     const submitPost = () => {
         if ((title === "" || description === "" || tags === "" || window.localStorage.getItem('content') === undefined)) {
@@ -80,6 +83,8 @@ const EditPost = () => {
             description: description,
             tags: tags,
             lastEditCount: lastEditCount,
+            author: author,
+            message: message,
             body: window.localStorage.getItem('content')
         })
 
@@ -226,6 +231,23 @@ const EditPost = () => {
                             }
                         }}
                     />
+                    <input type={"text"}
+                           onChange={event => {
+                               setAuthor(event.target.value);
+                               setMadeChanges(true);
+                           }}
+                           placeholder={"Author"}
+                           name={"author"}
+                           required/>
+                    <input type={"text"}
+                           onChange={event => {
+                               setMessage(event.target.value);
+                               setMadeChanges(true);
+                           }}
+                           placeholder={"Message"}
+                           name={"message"}
+                           defaultValue={message}
+                           required/>
                     <div className={"spacing-block"}/>
                     {submitButton()}
 
