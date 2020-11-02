@@ -37,7 +37,6 @@ html {
     /*Login and signup padding*/
     --input-padding-x: .75rem;
     --input-padding-y: .75rem;
-
 }
 
 html[data-theme='dark'] {
@@ -216,7 +215,13 @@ a.nav-link {
 .footer-icon {
     margin: 1rem 1rem;
 }
+.editorbar {
+    background: var(--global-bg-color-primary);
+    padding-bottom: 5px;
+    padding-top: 25px;
+    border-bottom: currentColor 2px solid;
 
+}
 .spacing-block {
     height: 4vw;
     width: 100%;
