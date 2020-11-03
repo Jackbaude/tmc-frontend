@@ -50,7 +50,7 @@ const EditPost = () => {
     const [message, setMessage] = useState('');
     const [failed, setFailed] = useState(false)
     const [failedMessage, setFailedMessage] = useState(<React.Fragment><strong>Woah there something went wrong!</strong> Are you sure you filled in all the fields?</React.Fragment>)
-    const [submitted, setSubmitted] = useState(false)
+    const [, setSubmitted] = useState(false)
     const [madeChanges, setMadeChanges] = useState(false)
     const [success, setSuccess] = useState(false)
     //Editor
@@ -433,7 +433,7 @@ const Element = props => {
             return <ImageElement {...props} />
         case 'link':
             return (
-                <a {...attributes} href={element.url} target={"_blank"} >
+                <a {...attributes} href={element.url} target={"_blank"} rel="noopener noreferrer">
                     {children}
                 </a>
             )
@@ -513,6 +513,7 @@ const ImageElement = ({attributes, children, element}) => {
             <div contentEditable={false}>
                 <img
                     src={element.url}
+                    alt={"rel=noopener noreferrer"}
                     className={css`
             display: block;
             max-width: 100%;

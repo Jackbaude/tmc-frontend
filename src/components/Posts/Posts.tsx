@@ -1,7 +1,5 @@
 //TODO add pagnation
-import React, {memo, useCallback, useEffect, useMemo, useState} from "react"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDiscord} from "@fortawesome/free-brands-svg-icons";
+import React, {memo, useEffect, useMemo, useState} from "react"
 
 const Posts = () => {
     const [metadata, setMetadata] = useState([])

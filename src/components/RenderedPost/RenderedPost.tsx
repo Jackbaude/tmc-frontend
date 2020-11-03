@@ -135,7 +135,7 @@ const Element = props => {
             return <ImageElement {...props} />
         case 'link':
             return (
-                <a {...attributes} href={element.url} target={"_blank"}>
+                <a {...attributes} href={element.url} target={"_blank"} rel="noopener noreferrer">
                     {children}
                 </a>
             )
@@ -170,6 +170,7 @@ const ImageElement = ({attributes, children, element}) => {
             <div contentEditable={false}>
                 <img
                     src={element.url}
+                    alt={"cannot find"}
                     className={css`
             display: block;
             max-width: 100%;

@@ -2,7 +2,7 @@ import React from "react"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDiscord, faGithub} from '@fortawesome/free-brands-svg-icons'
 import ThemeToggle from "./ThemeToggle";
-import {faDollarSign, faSignInAlt} from "@fortawesome/free-solid-svg-icons";
+import {faDollarSign, /*faSignInAlt*/} from "@fortawesome/free-solid-svg-icons";
 import book from "./Home/img/book.png"
 const Nav = () => {
     return (

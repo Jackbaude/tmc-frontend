@@ -1,9 +1,8 @@
 import React, {memo, useState} from "react"
-import Cookies from 'universal-cookie';
 import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 const ThemeToggle = () => {
-    const [themeState, setThemeState] = useState(localStorage.getItem('mode'))
+    const [, setThemeState] = useState(localStorage.getItem('mode'))
     const toggleTheme = () => {
         const theme = localStorage.getItem('mode') === 'dark' ? 'light' : 'dark';
         setThemeState(theme)

@@ -8,7 +8,6 @@ const Archive = () => {
     //default state of the fetch getPost is loading
     const [fetchState, setFetchState] = useState("loading")
     const [file, setFile] = useState("")
-    const [showForm, setShowForm] = useState(false)
     useEffect(() => {
         getPost()
             //If the fetch got the data make the state a success
