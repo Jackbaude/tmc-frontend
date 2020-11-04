@@ -10,6 +10,8 @@ import {withHistory} from 'slate-history'
 import {Toolbar, MarkButton, BlockButton, InsertImageButton, LinkButton, toggleMark} from '../RichUtils'
 import {Element, Leaf, withLinks, withImages} from "../Elements";
 import {useParams} from "react-router";
+import NotAuthenticated from "../NotAuthenticated/NotAuthenticated";
+
 const HOTKEYS = {
     'mod+b': 'bold',
     'mod+i': 'italic',
@@ -19,6 +21,10 @@ const HOTKEYS = {
 
 const EditPost = () => {
     useEffect(() => {
+        checkAuth().then(() => setCheckedAuth(true)).catch(() => {
+            setAuthed(false);
+            setCheckedAuth(true);
+        });
         getPost()
             //If the fetch got the data make the state a success
             .then(() => {
@@ -37,11 +43,12 @@ const EditPost = () => {
     const [description, setDescription] = useState('')
     const [tags, setTags] = useState('')
     const [lastEditCount, setLastEditCount] = useState(0)
-    const [author, setAuthor] = useState('');
     const [message, setMessage] = useState('');
     const [failed, setFailed] = useState(false)
     const [failedMessage, setFailedMessage] = useState(<React.Fragment><strong>Woah there something went wrong!</strong> Are you sure you filled in all the fields?</React.Fragment>)
     const [, setSubmitted] = useState(false)
+    const [authed, setAuthed] = useState(false);
+    const [checkedAuth, setCheckedAuth] = useState(false);
     const [madeChanges, setMadeChanges] = useState(false)
     const [success, setSuccess] = useState(false)
     //Editor
@@ -63,6 +70,16 @@ const EditPost = () => {
         await setValue(JSON.parse(data.body))
         await setMessage(`Edit ${data.title}`);
     }
+    const checkAuth = async() => {
+        const response = await fetch('/api/__userinfo__');
+        const data = await response.json();
+        setAuthed(data.authenticated);
+    }
+
+    if (checkedAuth && !authed) {
+        return <NotAuthenticated/>
+    }
+
     const submitPost = () => {
         //There must be a change to something to submit an edit
         if ((title === "" || description === "" || tags === "" || window.localStorage.getItem('content') === undefined)) {
@@ -75,7 +92,6 @@ const EditPost = () => {
             description: description,
             tags: tags,
             lastEditCount: lastEditCount,
-            author: author,
             message: message,
             body: window.localStorage.getItem('content')
         })
@@ -221,14 +237,6 @@ const EditPost = () => {
                             }
                         }}
                     />
-                    <input type={"text"}
-                           onChange={event => {
-                               setAuthor(event.target.value);
-                               setMadeChanges(true);
-                           }}
-                           placeholder={"Author"}
-                           name={"author"}
-                           required/>
                     <input type={"text"}
                            onChange={event => {
                                setMessage(event.target.value);

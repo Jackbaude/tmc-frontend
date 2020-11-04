@@ -143,6 +143,18 @@ a.nav-link {
     border-color: var(--global-text-color-secondary);
 }
 
+.discord-avatar {
+    border-radius: 50%;
+}
+
+.discord-discriminator {
+    font-size: 0.5rem;
+    color: #05066e;
+}
+.discord-discriminator[data-theme="dark"] {
+    color: #2f72ff;
+}
+
 /* Setting the stroke to green using rgb values (0, 128, 0) */
 
 .custom-toggler .navbar-toggler-icon {
