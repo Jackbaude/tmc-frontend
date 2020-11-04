@@ -1,4 +1,4 @@
-import React, {useState, useMemo, useCallback} from 'react'
+import React, {useState, useMemo, useCallback, useEffect} from 'react'
 import isHotkey from 'is-hotkey'
 import {Node, createEditor} from 'slate'
 import {
@@ -9,6 +9,7 @@ import {
 import {withHistory} from 'slate-history'
 import {Toolbar, MarkButton, BlockButton, InsertImageButton, LinkButton, toggleMark} from '../RichUtils'
 import {Element, Leaf, withLinks, withImages} from "../Elements";
+import NotAuthenticated from "../NotAuthenticated/NotAuthenticated";
 
 const HOTKEYS = {
     'mod+b': 'bold',
@@ -18,14 +19,21 @@ const HOTKEYS = {
 }
 
 const NewPost = () => {
+    useEffect(() => {
+        checkAuth().then(() => setCheckedAuth(true)).catch(() => {
+            setAuthed(false);
+            setCheckedAuth(true);
+        });
+    });
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [tags, setTags] = useState('')
-    const [author, setAuthor] = useState('');
     const [failed, setFailed] = useState(false)
     const [, setSubmitted] = useState(false)
     const [madeChanges, setMadeChanges] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [authed, setAuthed] = useState(false);
+    const [checkedAuth, setCheckedAuth] = useState(false);
     const [value, setValue] = useState<Node[]>(initialValue)
     const renderElement = useCallback(props => <Element {...props} />, [])
     const renderLeaf = useCallback(props => <Leaf {...props} />, [])
@@ -33,6 +41,16 @@ const NewPost = () => {
         () => withImages(withLinks(withHistory(withReact(createEditor())))),
         []
     )
+    const checkAuth = async () => {
+        const response = await fetch('/api/__userinfo__');
+        const data = await response.json();
+        setAuthed(data.authenticated);
+    };
+
+    if (checkedAuth && !authed) {
+        return <NotAuthenticated/>
+    }
+
     const submitPost = () => {
         // if the title, description, or tags are empty
         if ((title === "" || description === "" || tags === "")) {
@@ -45,7 +63,6 @@ const NewPost = () => {
             title: title,
             description: description,
             tags: tags,
-            author: author,
             body: window.localStorage.getItem('content')
         })
         fetch("/api/__newpost__", {
@@ -166,15 +183,6 @@ const NewPost = () => {
                         }}
 
                     />
-                    <input type={"text"}
-                           onChange={event => {
-                               setAuthor(event.target.value);
-                               setMadeChanges(true);
-                           }}
-                           placeholder={"Author"}
-                           name={"author"}
-                           required/>
-                    <div className={"spacing-block"}/>
                     {submitButton()}
 
                 </form>

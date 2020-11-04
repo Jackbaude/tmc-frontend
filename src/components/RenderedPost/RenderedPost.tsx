@@ -13,7 +13,14 @@ import {Element, Leaf, withLinks, withImages} from "../Elements";
 const RenderedPost = () => {
     const {id} = useParams();
     const [fetchState, setFetchState] = useState("loading")
+    const [authenticated, setAuthenticated] = useState(false);
+    const getAuthenticated = async () => {
+        const response = await fetch('/api/__userinfo__');
+        const data = await response.json();
+        setAuthenticated(data.authenticated);
+    }
     useEffect(() => {
+        getAuthenticated().catch(() => setAuthenticated(false));
         getPost()
             //If the fetch got the data make the state a success
             .then(() => {
@@ -60,6 +67,7 @@ const RenderedPost = () => {
                 this post exists? Is the API down? Check with Jakku on the Discord.</div>
         )
     }
+    const editLink = authenticated ? <a className={"btn btn-lg"} href={"/edit-post/" + id}>Edit Post</a> : <div/>
     return (
         <div>
             <h1>{title}</h1>
@@ -72,7 +80,7 @@ const RenderedPost = () => {
                 />
                 <div className={"spacing-block"}/>
             </Slate>
-            <a className={"btn btn-lg"} href={"/edit-post/" + id}>Edit Post</a>
+            {editLink}
         </div>
     )
 
