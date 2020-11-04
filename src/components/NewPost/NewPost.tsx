@@ -90,24 +90,24 @@ const NewPost = () => {
             })
 
     }
-    const failedPost = () => {
+    const FailedPost = () => {
         if (failed) {
             return (<div className="alert alert-danger show" role="alert">
                 <strong>Woah there something went wrong!</strong> Are you sure you filled in all the fields?
-            </div>)
+            </div>);
         } else {
-            return
+            return null;
         }
     }
-    const submitButton = () => {
+    const SubmitButton = () => {
         if (madeChanges) {
             return (
-                <button type="button" className={"btn btn-primary btn-lg"} value={"Submit"}
+                <button className={"btn btn-primary btn-lg"}
                         onClick={submitPost}>Create Post
                 </button>
-            )
+            );
         } else {
-            return <div/>
+            return null;
         }
     }
     if (!success) {
@@ -123,7 +123,7 @@ const NewPost = () => {
                 }}
             >
                 <form className={"submit-post"}>
-                    {failedPost()}
+                    <FailedPost/>
                     <Toolbar>
                         <MarkButton format="bold" icon="format_bold"/>
                         <MarkButton format="italic" icon="format_italic"/>
@@ -175,16 +175,15 @@ const NewPost = () => {
                         onKeyDown={event => {
                             for (const hotkey in HOTKEYS) {
                                 if (isHotkey(hotkey, event as any)) {
-                                    event.preventDefault()
-                                    const mark = HOTKEYS[hotkey]
-                                    toggleMark(editor, mark)
+                                    event.preventDefault();
+                                    const mark = HOTKEYS[hotkey];
+                                    toggleMark(editor, mark);
                                 }
                             }
                         }}
 
                     />
-                    {submitButton()}
-
+                    <SubmitButton/>
                 </form>
             </Slate>
         )

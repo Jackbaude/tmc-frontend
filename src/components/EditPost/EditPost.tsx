@@ -1,4 +1,4 @@
-import React, {useState, useMemo, useCallback, useEffect} from 'react'
+import React, {useState, useMemo, useCallback, useEffect, FC} from 'react'
 import isHotkey from 'is-hotkey'
 import {Node,createEditor} from 'slate'
 import {
@@ -22,6 +22,7 @@ const HOTKEYS = {
 const EditPost = () => {
     // Id of the post
     const {id} = useParams();
+
     const getPost: () => Promise<void> = useCallback(async () => {
         const response = await fetch('/api/__getpost__?id=' + id)
         const data = await response.json()
@@ -33,11 +34,13 @@ const EditPost = () => {
         await setValue(JSON.parse(data.body))
         await setMessage(`Edit ${data.title}`);
     }, [id])
+
     const checkAuth: () => Promise<void> = useCallback(async() => {
         const response = await fetch('/api/__userinfo__');
         const data = await response.json();
         setAuthed(data.authenticated);
     },[])
+
     useEffect(() => {
         checkAuth().then(() => setCheckedAuth(true)).catch(() => {
             setAuthed(false);
@@ -54,7 +57,7 @@ const EditPost = () => {
             })
     }, [getPost, checkAuth]);
 
-    //States
+    //the fetching state is defaulted as loading
     const [fetchState, setFetchState] = useState("loading")
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -68,7 +71,7 @@ const EditPost = () => {
     const [checkedAuth, setCheckedAuth] = useState(false);
     const [madeChanges, setMadeChanges] = useState(false)
     const [success, setSuccess] = useState(false)
-    //Editor
+    //Slate.js editor states
     const [value, setValue] = useState<Node[]>(initialValue)
     const renderElement = useCallback(props => <Element {...props} />, [])
     const renderLeaf = useCallback(props => <Leaf {...props} />, [])
@@ -129,24 +132,24 @@ const EditPost = () => {
                 setFailed(true)
             })
     }
-    const failedPost = () => {
+    const FailedPost: FC = () => {
         if (failed) {
             return (<div className="alert alert-danger show" role="alert">
                 {failedMessage}
             </div>)
         } else {
-            return
+            return null;
         }
     }
-    const submitButton = () => {
+    const SubmitButton:  FC = () => {
         if (madeChanges) {
             return (
-                <button type="button" className={"btn btn-primary btn-lg"} value={"Submit"}
+                <button className={"btn btn-primary btn-lg"}
                         onClick={submitPost}>Submit Edits
                 </button>
             )
         } else {
-            return <div/>
+            return null;
         }
     }
     // if the post is still loading just render a loading bar
@@ -179,7 +182,7 @@ const EditPost = () => {
                 }}
             >
                 <form className={"submit-post"}>
-                    {failedPost()}
+                    <FailedPost/>
                     <Toolbar>
                         <MarkButton format="bold" icon="format_bold"/>
                         <MarkButton format="italic" icon="format_italic"/>
@@ -250,7 +253,7 @@ const EditPost = () => {
                            defaultValue={message}
                            required/>
                     <div className={"spacing-block"}/>
-                    {submitButton()}
+                    <SubmitButton/>
 
                 </form>
             </Slate>

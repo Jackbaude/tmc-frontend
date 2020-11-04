@@ -32,11 +32,11 @@ const RenderedPost = () => {
         getPost()
             //If the fetch got the data make the state a success
             .then(() => {
-                setFetchState("success")
+                setFetchState("success");
             })
             //If the fetch was bad set the state of the fecth to failed
             .catch(() => {
-                setFetchState("failed")
+                setFetchState("failed");
             })
     }, [getPost]);
 
