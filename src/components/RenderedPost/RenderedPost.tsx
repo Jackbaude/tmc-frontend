@@ -1,17 +1,14 @@
 import React, {useState, useMemo, useCallback, useEffect} from 'react'
-import {Node, createEditor, Transforms, Range, Editor} from 'slate'
+import {Node, createEditor} from 'slate'
 import {
     Slate,
     Editable,
-    useSelected,
-    useFocused,
     withReact,
 
 } from 'slate-react'
 import {withHistory} from 'slate-history'
-import {css} from 'emotion'
 import {useParams} from "react-router";
-import isUrl from "is-url";
+import {Element, Leaf, withLinks, withImages} from "../Elements";
 
 const RenderedPost = () => {
     const {id} = useParams();
@@ -80,138 +77,7 @@ const RenderedPost = () => {
     )
 
 }
-const withLinks = editor => {
-    const {insertData, insertText, isInline} = editor
 
-    editor.isInline = element => {
-        return element.type === 'link' ? true : isInline(element)
-    }
-
-    editor.insertText = text => {
-        if (text && isUrl(text)) {
-            wrapLink(editor, text)
-        } else {
-            insertText(text)
-        }
-    }
-
-    editor.insertData = data => {
-        const text = data.getData('text/plain')
-
-        if (text && isUrl(text)) {
-            wrapLink(editor, text)
-        } else {
-            insertData(data)
-        }
-    }
-
-    return editor
-}
-const withImages = editor => {
-    const {isVoid} = editor
-
-    editor.isVoid = element => {
-        return element.type === 'image' ? true : isVoid(element)
-    }
-    return editor
-}
-const Element = props => {
-    const {attributes, children, element} = props
-
-    switch (element.type) {
-        case 'block-quote':
-            return <blockquote {...attributes}>{children}</blockquote>
-        case 'bulleted-list':
-            return <ul {...attributes}>{children}</ul>
-        case 'heading-one':
-            return <h1 {...attributes}>{children}</h1>
-        case 'heading-two':
-            return <h2 {...attributes}>{children}</h2>
-        case 'list-item':
-            return <li {...attributes}>{children}</li>
-        case 'numbered-list':
-            return <ol {...attributes}>{children}</ol>
-        case 'image':
-            return <ImageElement {...props} />
-        case 'link':
-            return (
-                <a {...attributes} href={element.url} target={"_blank"} rel="noopener noreferrer">
-                    {children}
-                </a>
-            )
-        default:
-            return <p {...attributes}>{children}</p>
-    }
-}
-const Leaf = ({attributes, children, leaf}) => {
-    if (leaf.bold) {
-        children = <strong>{children}</strong>
-    }
-
-    if (leaf.code) {
-        children = <code>{children}</code>
-    }
-
-    if (leaf.italic) {
-        children = <em>{children}</em>
-    }
-
-    if (leaf.underline) {
-        children = <u>{children}</u>
-    }
-
-    return <span {...attributes}>{children}</span>
-}
-const ImageElement = ({attributes, children, element}) => {
-    const selected = useSelected()
-    const focused = useFocused()
-    return (
-        <div {...attributes}>
-            <div contentEditable={false}>
-                <img
-                    src={element.url}
-                    alt={"cannot find"}
-                    className={css`
-            display: block;
-            max-width: 100%;
-            max-height: 20em;
-            box-shadow: ${selected && focused ? '0 0 0 3px #B4D5FF' : 'none'};
-          `}
-                />
-            </div>
-            {children}
-        </div>
-    )
-}
-const unwrapLink = editor => {
-    Transforms.unwrapNodes(editor, {match: n => n.type === 'link'})
-}
-
-const wrapLink = (editor, url) => {
-    if (isLinkActive(editor)) {
-        unwrapLink(editor)
-    }
-
-    const {selection} = editor
-    const isCollapsed = selection && Range.isCollapsed(selection)
-    const link = {
-        type: 'link',
-        url,
-        children: isCollapsed ? [{text: url}] : [],
-    }
-
-    if (isCollapsed) {
-        Transforms.insertNodes(editor, link)
-    } else {
-        Transforms.wrapNodes(editor, link, {split: true})
-        Transforms.collapse(editor, {edge: 'end'})
-    }
-}
-
-const isLinkActive = editor => {
-    const [link] = Editor.nodes(editor, {match: n => n.type === 'link'})
-    return !!link
-}
 const initialValue = [
     {
         children: [
