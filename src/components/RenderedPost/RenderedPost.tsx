@@ -12,6 +12,14 @@ import {Element, Leaf, withLinks, withImages} from "../Elements";
 
 const RenderedPost = () => {
     const {id} = useParams();
+    const getPost: () => Promise<void> = useCallback(async () => {
+        const response = await fetch('/api/__getpost__?id=' + id)
+        const data = await response.json()
+        console.log(data)
+        setTitle(data.title)
+        setLastEdited(data.last_edited)
+        setValue(JSON.parse(data.body))
+    }, [id])
     const [fetchState, setFetchState] = useState("loading")
     const [authenticated, setAuthenticated] = useState(false);
     const getAuthenticated = async () => {
@@ -30,18 +38,10 @@ const RenderedPost = () => {
             .catch(() => {
                 setFetchState("failed")
             })
-    }, []);
+    }, [getPost]);
 
     const [title, setTitle] = useState('')
     const [lastEdited, setLastEdited] = useState('')
-    const getPost = async () => {
-        const response = await fetch('/api/__getpost__?id=' + id)
-        const data = await response.json()
-        console.log(data)
-        setTitle(data.title)
-        setLastEdited(data.last_edited)
-        setValue(JSON.parse(data.body))
-    }
     const [value, setValue] = useState<Node[]>(initialValue)
     const renderElement = useCallback(props => <Element {...props} />, [])
     const renderLeaf = useCallback(props => <Leaf {...props} />, [])

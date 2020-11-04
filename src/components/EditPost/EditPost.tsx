@@ -20,6 +20,24 @@ const HOTKEYS = {
 }
 
 const EditPost = () => {
+    // Id of the post
+    const {id} = useParams();
+    const getPost: () => Promise<void> = useCallback(async () => {
+        const response = await fetch('/api/__getpost__?id=' + id)
+        const data = await response.json()
+        console.log(data)
+        await setTitle(data.title)
+        await setDescription(data.description)
+        await setTags(data.tags)
+        await setLastEditCount(data.editCount)
+        await setValue(JSON.parse(data.body))
+        await setMessage(`Edit ${data.title}`);
+    }, [id])
+    const checkAuth: () => Promise<void> = useCallback(async() => {
+        const response = await fetch('/api/__userinfo__');
+        const data = await response.json();
+        setAuthed(data.authenticated);
+    },[])
     useEffect(() => {
         checkAuth().then(() => setCheckedAuth(true)).catch(() => {
             setAuthed(false);
@@ -34,9 +52,8 @@ const EditPost = () => {
             .catch(() => {
                 setFetchState("failed")
             })
-    }, []);
-    // Id of the post
-    const {id} = useParams();
+    }, [getPost, checkAuth]);
+
     //States
     const [fetchState, setFetchState] = useState("loading")
     const [title, setTitle] = useState('')
@@ -59,22 +76,8 @@ const EditPost = () => {
         () => withImages(withLinks(withHistory(withReact(createEditor())))),
         []
     )
-    const getPost = async () => {
-        const response = await fetch('/api/__getpost__?id=' + id)
-        const data = await response.json()
-        console.log(data)
-        await setTitle(data.title)
-        await setDescription(data.description)
-        await setTags(data.tags)
-        await setLastEditCount(data.editCount)
-        await setValue(JSON.parse(data.body))
-        await setMessage(`Edit ${data.title}`);
-    }
-    const checkAuth = async() => {
-        const response = await fetch('/api/__userinfo__');
-        const data = await response.json();
-        setAuthed(data.authenticated);
-    }
+
+
 
     if (checkedAuth && !authed) {
         return <NotAuthenticated/>
