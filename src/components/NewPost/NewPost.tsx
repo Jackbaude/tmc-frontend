@@ -1,16 +1,14 @@
 import React, {useState, useMemo, useCallback} from 'react'
 import isHotkey from 'is-hotkey'
-import {Node, Transforms, Editor, createEditor} from 'slate'
+import {Node, createEditor} from 'slate'
 import {
     Slate,
     Editable,
-    useEditor,
     withReact,
-    useSlate,
 } from 'slate-react'
 import {withHistory} from 'slate-history'
-import {Button, Icon, Toolbar} from '../RichUtils'
-import {Element, insertLink, isLinkActive, Leaf, withLinks, withImages, insertImage} from "../Elements";
+import {Toolbar, MarkButton, BlockButton, InsertImageButton, LinkButton, toggleMark} from '../RichUtils'
+import {Element, Leaf, withLinks, withImages} from "../Elements";
 
 const HOTKEYS = {
     'mod+b': 'bold',
@@ -18,7 +16,7 @@ const HOTKEYS = {
     'mod+u': 'underline',
     'mod+`': 'code',
 }
-const LIST_TYPES = ['numbered-list', 'bulleted-list']
+
 const NewPost = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -195,114 +193,6 @@ const NewPost = () => {
         )
     }
 }
-
-const toggleBlock = (editor, format) => {
-    const isActive = isBlockActive(editor, format)
-    const isList = LIST_TYPES.includes(format)
-
-    Transforms.unwrapNodes(editor, {
-        match: n => LIST_TYPES.includes(n.type as string),
-        split: true,
-    })
-
-    Transforms.setNodes(editor, {
-        type: isActive ? 'paragraph' : isList ? 'list-item' : format,
-    })
-
-    if (!isActive && isList) {
-        const block = {type: format, children: []}
-        Transforms.wrapNodes(editor, block)
-    }
-}
-
-const toggleMark = (editor, format) => {
-    const isActive = isMarkActive(editor, format)
-
-    if (isActive) {
-        Editor.removeMark(editor, format)
-    } else {
-        Editor.addMark(editor, format, true)
-    }
-}
-
-const isBlockActive = (editor, format) => {
-    const [match] = Editor.nodes(editor, {
-        match: n => n.type === format,
-    })
-
-    return !!match
-}
-
-const isMarkActive = (editor, format) => {
-    const marks = Editor.marks(editor)
-    return marks ? marks[format] === true : false
-}
-
-
-const BlockButton = ({format, icon}) => {
-    const editor = useSlate()
-    return (
-        <Button
-            active={isBlockActive(editor, format)}
-            onMouseDown={event => {
-                event.preventDefault()
-                toggleBlock(editor, format)
-            }}
-        >
-            <Icon>{icon}</Icon>
-        </Button>
-    )
-}
-
-const MarkButton = ({format, icon}) => {
-    const editor = useSlate()
-    return (
-        <Button
-            active={isMarkActive(editor, format)}
-            onMouseDown={event => {
-                event.preventDefault()
-                toggleMark(editor, format)
-            }}
-        >
-            <Icon>{icon}</Icon>
-        </Button>
-    )
-}
-const LinkButton = () => {
-    const editor = useSlate()
-    return (
-        <Button
-            active={isLinkActive(editor)}
-            onMouseDown={event => {
-                event.preventDefault()
-                const url = window.prompt('Enter the URL of the link:')
-                if (!url) return
-                insertLink(editor, url)
-            }}
-        >
-            <Icon>link</Icon>
-        </Button>
-    )
-}
-
-
-
-const InsertImageButton = () => {
-    const editor = useEditor()
-    return (
-        <Button
-            onMouseDown={event => {
-                event.preventDefault()
-                const url = window.prompt('Enter the URL of the image:')
-                if (!url) return
-                insertImage(editor, url)
-            }}
-        >
-            <Icon>image</Icon>
-        </Button>
-    )
-}
-
 
 const initialValue = [
     {
