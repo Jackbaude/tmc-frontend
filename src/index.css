@@ -7,7 +7,7 @@ TODO organize this
 TODO dark mode and light mode toggle
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 :root {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -105,7 +105,6 @@ blockquote::after{
     margin-bottom: 5vw;
 }
 
-
 .link {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
@@ -142,18 +141,19 @@ a.nav-link {
 .custom-toggler.navbar-toggler {
     border-color: var(--global-text-color-secondary);
 }
-
+.discord-data {
+    font-size:2em;
+    color: white;
+}
 .discord-avatar {
     border-radius: 50%;
+    margin-right: 0.5rem;
 }
 
 .discord-discriminator {
-    font-size: 0.5rem;
-    color: #05066e;
+    font-size: 0.4em;
 }
-.discord-discriminator[data-theme="dark"] {
-    color: #2f72ff;
-}
+
 
 /* Setting the stroke to green using rgb values (0, 128, 0) */
 
