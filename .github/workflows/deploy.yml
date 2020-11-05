@@ -17,7 +17,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install Packages
       run: npm install
-    - name: Build page
+    - name: Build
       run: npm run build
-    - name: Serve page
-      run: serve -s -C build -l 3000
+    - name: Restart PM2
+      run: pm2 restart ecosystem.config.js
+
