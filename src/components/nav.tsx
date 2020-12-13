@@ -1,10 +1,13 @@
 import React, {FC, useEffect, useState} from "react"
+import {useLocation} from "react-router";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import ThemeToggle from "./ThemeToggle";
 import {faSignInAlt, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 import book from "./Home/img/book.png"
+
 const Nav = () => {
+    const location = useLocation();
     useEffect(() => {
         getUser()
             .catch(() => {
@@ -38,7 +41,7 @@ const Nav = () => {
             return (
                 <React.Fragment>
                     <li className="nav-item">
-                        <a className="nav-link" href={"/api/auth"}><FontAwesomeIcon icon={faSignInAlt} size={"2x"}/></a>
+                        <a className="nav-link" href={"/api/auth?redirect=" + encodeURIComponent(location.pathname)}><FontAwesomeIcon icon={faSignInAlt} size={"2x"}/></a>
                     </li>
                 </React.Fragment>
             )
@@ -46,13 +49,9 @@ const Nav = () => {
     };
     const NewPost: FC = () => {
         if (authenticated) {
-            return (
-                <li className="nav-item">
-                    <a className="nav-link link" href="/new-post">New Post</a>
-                </li>
-            );
+            return <a className="nav-link link" href="/new-post">New Post</a>;
         } else {
-            return null;
+            return <a className="nav-link link" href={"/api/auth?redirect=" + encodeURIComponent("/new-post")}>New Post</a>;
         }
     }
     return (
@@ -69,7 +68,9 @@ const Nav = () => {
                         <li className="nav-item">
                             <a className="nav-link link" href="/posts">Posts</a>
                         </li>
+                        <li className="nav-item">
                         <NewPost/>
+                        </li>
                         <li className="nav-item">
                             <a className="nav-link link" href="/archive">Archive</a>
                         </li>
