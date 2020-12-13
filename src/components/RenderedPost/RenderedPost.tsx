@@ -67,7 +67,9 @@ const RenderedPost = () => {
                 this post exists? Is the API down? Check with Jakku on the Discord.</div>
         )
     }
-    const editLink = authenticated ? <a className={"btn btn-lg"} href={"/edit-post/" + id}>Edit Post</a> : <div/>
+    const editLink = authenticated
+        ? <a className={"btn btn-lg"} href={"/edit-post/" + id}>Edit Post</a>
+        : <a className={"btn btn-lg"} href={"/api/auth?redirect=" + encodeURIComponent('/edit-post/' + id)}>Login to Edit Post</a>
     return (
         <div>
             <h1>{title}</h1>
