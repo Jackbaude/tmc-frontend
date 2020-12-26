@@ -86,7 +86,9 @@ const EditPost = () => {
         return <NotAuthenticated/>
     }
 
-    const submitPost = () => {
+    const submitPost = (event) => {
+        event.preventDefault();
+        
         //There must be a change to something to submit an edit
         if ((title === "" || description === "" || tags === "" || window.localStorage.getItem('content') === undefined)) {
             setFailed(true)
@@ -111,9 +113,9 @@ const EditPost = () => {
             headers: {
                 "Content-Type": "application/json",
                 'Accept': 'application/json',
-                "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+                "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "POST",
-                "Access-Control-Allow-Headers": "Content-Type, Authorization"
+                "Access-Control-Allow-Headers": "*"
             }
         })
             .then(r => r.text())
@@ -129,6 +131,7 @@ const EditPost = () => {
                 }
             })
             .catch((e) => {
+                console.error(e);
                 setFailed(true)
             })
     }
