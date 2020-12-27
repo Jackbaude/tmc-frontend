@@ -17,7 +17,7 @@ const Posts = () => {
             })
     }, []);
     const getPost = async () => {
-        const response = await fetch('/api/__allposts__?')
+        const response = await fetch('/api/__listposts__?n=100000') // TODO: implement pages
         const data = await response.json()
         await setMetadata(data);
     };
@@ -28,7 +28,7 @@ const Posts = () => {
                 </a></div>
                 <div>About: {description}</div>
                 <div>Tags: {tags}</div>
-                <div>Last updated: {last_edited}</div>
+                <div>Last updated: {new Date(last_edited).toLocaleString()}</div>
             </div>
         )
         ),

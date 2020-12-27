@@ -17,7 +17,7 @@ const LatestPosts = () => {
             })
     }, []);
     const getPost = async () => {
-        const response = await fetch('/api/__latestposts__?')
+        const response = await fetch('/api/__listposts__?n=3')
         await setMetadata(await response.json());
     };
     const postLink = useMemo(() => metadata.map(
@@ -25,7 +25,7 @@ const LatestPosts = () => {
             <div className={"post-link-jumbo slideInDown"}>
                 <div className={"post-link-title"}><a href={"/render-post/" + id}><h4 className={"link"}>{title}</h4>
                 </a></div>
-                <div>Last updated: {last_edited}</div>
+                <div>Last updated: {new Date(last_edited).toLocaleString()}</div>
             </div>
         )
         ),

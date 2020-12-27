@@ -41,7 +41,7 @@ const RenderedPost = () => {
     }, [getPost]);
 
     const [title, setTitle] = useState('')
-    const [lastEdited, setLastEdited] = useState('')
+    const [lastEdited, setLastEdited] = useState(0)
     const [value, setValue] = useState<Node[]>(initialValue)
     const renderElement = useCallback(props => <Element {...props} />, [])
     const renderLeaf = useCallback(props => <Leaf {...props} />, [])
@@ -73,7 +73,7 @@ const RenderedPost = () => {
     return (
         <div>
             <h1>{title}</h1>
-            <p>Last Edited: {lastEdited}</p>
+            <p>Last Edited: {new Date(lastEdited).toLocaleString()}</p>
             <Slate editor={editor} value={value} onChange={value => setValue(value)}>
                 <Editable
                     renderElement={renderElement}
