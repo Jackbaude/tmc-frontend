@@ -183,7 +183,19 @@ a.nav-link {
     text-decoration: none;
     /*margin-left: 1vw;*/
 }
-
+.categories {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.categories_item {
+    flex: 1 0 20%;
+    margin: 5px;
+}
+.categories_item a{
+    color: var(--global-text-color-primary)!important;
+    font-size: larger;
+}
 .git-commits svg {
     color: var(--global-text-color-primary);
 }
@@ -200,6 +212,11 @@ a.nav-link {
 }
 .post-link-jumbo a:hover {
     text-decoration: none;
+}
+.custom-select{
+    background: var(--global-bg-color-primary)!important;
+    color: var(--global-text-color-primary)!important;
+    margin-bottom: 1vh;
 }
 .file-input{
     display: none;

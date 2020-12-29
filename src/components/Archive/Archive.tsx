@@ -2,13 +2,19 @@
 import React, {memo, useEffect, useMemo, useState} from "react"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDownload, faFile, faUpload} from "@fortawesome/free-solid-svg-icons";
-
+import NotAuthenticated from "../NotAuthenticated/NotAuthenticated";
 const Archive = () => {
     const [metadata, setMetadata] = useState([])
     //default state of the fetch getPost is loading
     const [fetchState, setFetchState] = useState("loading")
     const [file, setFile] = useState("")
+    const [authed, setAuthed] = useState(false);
+    const [checkedAuth, setCheckedAuth] = useState(false);
     useEffect(() => {
+        checkAuth().then(() => setCheckedAuth(true)).catch(() => {
+            setAuthed(false);
+            setCheckedAuth(true);
+        });
         getPost()
             //If the fetch got the data make the state a success
             .then(() => {
@@ -25,6 +31,11 @@ const Archive = () => {
         console.log(data)
         await setMetadata(data);
     };
+    const checkAuth = async () => {
+        const response = await fetch('/api/__userinfo__');
+        const data = await response.json();
+        setAuthed(data.authenticated);
+    };
     const postLink = useMemo(() => Object.entries(metadata).map
         (([id, {name, size, created, link}]) => (
                 <tr>
@@ -37,6 +48,9 @@ const Archive = () => {
         ),
         [metadata]);
     const formButtons = () => {
+        if (checkedAuth && !authed) {
+            return
+        }
         const file_ext = (file.split('.').pop())
         if (file === "") {
             return <label htmlFor="getFile" className={"btn btn-lg file-input-button"}><FontAwesomeIcon
@@ -74,7 +88,8 @@ const Archive = () => {
             <div className="alert alert-danger" role="alert">Sorry Looks like something is going wrong. Is the API down?
                 Check with Jakku on the Discord.</div>
         )
-    } else return (
+    }
+    else return (
         <div>
             <form action={"/api/__archive-upload__"} encType={"multipart/form-data"} method={"POST"}>
                 <input id={"getFile"} type={"file"} name={"file"} className={"file-input"} onChange={(event) => {

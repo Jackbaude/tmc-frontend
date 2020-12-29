@@ -221,15 +221,25 @@ const EditPost = () => {
                            defaultValue={description}
                            required/>
                     <br/>
-                    <input type={"text"}
-                           onChange={event => {
-                               setTags(event.target.value)
-                               setMadeChanges(true)
-                           }}
-                           placeholder={"Tags"}
-                           name={"tags"}
-                           defaultValue={tags}
-                           required/>
+                    <select className={"custom-select"}
+                            onChange={event => {
+                                setTags(event.target.value)
+                                setMadeChanges(true)
+                            }}
+                            required>
+                        <option value="Components">Components</option>
+                        <option value="Mob Farming">Mob Farming</option>
+                        <option value="General Farming">General Farming</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Storage Tech">Storage Tech</option>
+                        <option value="Redstone">Redstone</option>
+                        <option value="TNT">TNT</option>
+                        <option value="Flying Machines">Flying Machines</option>
+                        <option value="Exploits">Exploits</option>
+                        <option value="Guides">Guides</option>
+                        <option value="Community">Community</option>
+                        <option value="Getting Started">Getting Started</option>
+                    </select>
                     <Editable
                         renderElement={renderElement}
                         renderLeaf={renderLeaf}
